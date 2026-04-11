@@ -9,7 +9,6 @@ public class Stock
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public virtual Product? Product { get; set; }
     
-    public virtual ICollection<Stock> Stocks { get; set; } = new List<Stock>();
     public Stock(){}
 
     public Stock(int productId, int quantity, decimal price)

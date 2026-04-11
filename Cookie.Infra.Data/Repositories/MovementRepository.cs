@@ -8,7 +8,7 @@ namespace Cookie.Infra.Data.Repositories;
 
 public class MovementRepository : IMovementRepository
 {
-    private ApplicationDbContext _context;
+    private readonly ApplicationDbContext _context;
 
     public MovementRepository(ApplicationDbContext context)
     {

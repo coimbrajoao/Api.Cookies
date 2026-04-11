@@ -3,10 +3,10 @@ namespace Cookie.Domain.Entities;
 public class Product
 {
     public int Id { get; set; }
-    public string Name { get; private set; }
-    public string Description { get; private set; }
-    public decimal Price { get; private set; }
-    public string Flavor { get; private set; }
+    public string Name { get;  set; }
+    public string Description { get;  set; }
+    public decimal Price { get;  set; }
+    public string Flavor { get;  set; }
     public ICollection<Stock> Stocks { get; set; } = new List<Stock>();
 
     public Product(){}

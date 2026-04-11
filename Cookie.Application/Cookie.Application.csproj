@@ -11,9 +11,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DTOs\" />
-      <Folder Include="Interfaces\" />
-      <Folder Include="Services\" />
+      <Compile Remove="DTOs\ProductRequestDTO\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="DTOs\ProductRequestDTO\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="DTOs\ProductRequestDTO\**" />
     </ItemGroup>
 
 </Project>
