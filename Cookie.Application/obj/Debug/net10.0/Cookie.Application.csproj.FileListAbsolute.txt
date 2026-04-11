@@ -1,0 +1,15 @@
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\bin\Debug\net10.0\Cookie.Application.deps.json
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\bin\Debug\net10.0\Cookie.Application.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\bin\Debug\net10.0\Cookie.Application.pdb
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\bin\Debug\net10.0\Cookie.Domain.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\bin\Debug\net10.0\Cookie.Domain.pdb
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.csproj.AssemblyReference.cache
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.AssemblyInfoInputs.cache
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.AssemblyInfo.cs
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.csproj.CoreCompileInputs.cache
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.A.7852B0EA.Up2Date
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\refint\Cookie.Application.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.pdb
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\ref\Cookie.Application.dll
