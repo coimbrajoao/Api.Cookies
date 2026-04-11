@@ -1,37 +1,59 @@
+using System.Runtime.CompilerServices;
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
+using Cookie.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cookie.Infra.Data.Repositories;
 
 public class StockRepository : IStockRepository
 {
-    public Task<Stock> AddAsync(Stock stock)
+    private ApplicationDbContext _context;
+
+    public StockRepository(ApplicationDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    
+    public async Task<Stock> AddAsync(Stock stock)
+    {
+        _context.Stock.Add(stock);
+        await _context.SaveChangesAsync();
+        return stock;
     }
 
-    public Task<Stock?> UpdateAsync(Stock stock)
+    public async Task<Stock?> UpdateAsync(Stock stock)
     {
-        throw new NotImplementedException();
+        _context.Stock.Update(stock);
+        await _context.SaveChangesAsync();
+        return stock;
     }
 
-    public Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        var  stock = _context.Stock.Find(id);
+        if (stock != null)
+        {
+            _context.Stock.Remove(stock);
+            return true;
+        }
+
+        return false;
     }
 
-    public Task<List<Stock>> GetAllAsync()
+    public async Task<List<Stock>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Stock.ToListAsync();
     }
 
-    public Task<Stock?> GetByIdAsync(int id)
+    public async Task<Stock?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Stock.FindAsync(id);
     }
 
-    public Task<List<Stock>> GetByProductIdAsync(int productId)
+    public async Task<List<Stock>> GetByProductIdAsync(int productId)
     {
-        throw new NotImplementedException();
+        _context.Stock.Find(productId);
+        return await _context.Stock.ToListAsync();
     }
 }

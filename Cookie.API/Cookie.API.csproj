@@ -18,4 +18,8 @@
       <ProjectReference Include="..\Cookie.Infra.Ioc\Cookie.Infra.Ioc.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+    </ItemGroup>
+
 </Project>

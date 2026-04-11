@@ -1,27 +1,40 @@
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
+using Cookie.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
+using ZstdSharp.Unsafe;
 
 namespace Cookie.Infra.Data.Repositories;
 
 public class MovementRepository : IMovementRepository
 {
-    public Task<List<Movement>> GetAllMovementsAsync()
+    private ApplicationDbContext _context;
+
+    public MovementRepository(ApplicationDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    public async Task<List<Movement>> GetAllMovementsAsync()
+    {
+        return await _context.Movement.ToListAsync();
     }
 
-    public Task<Movement> GetMovementByIdAsync(int movementId)
+    public async Task<Movement> GetMovementByIdAsync(int Id)
     {
-        throw new NotImplementedException();
+        return await _context.Movement.FindAsync(Id);
     }
 
-    public Task<Movement> AddMovementAsync(Movement movement)
+    public async Task<Movement> AddMovementAsync(Movement movement)
     {
-        throw new NotImplementedException();
+        _context.Movement.Add(movement);
+        await _context.SaveChangesAsync();
+        return movement;
     }
 
-    public Task<Movement> UpdateMovementAsync(Movement movement)
+    public async Task<Movement> UpdateMovementAsync(Movement movement)
     {
-        throw new NotImplementedException();
+        _context.Movement.Update(movement);
+        await _context.SaveChangesAsync();
+        return movement;
     }
 }
