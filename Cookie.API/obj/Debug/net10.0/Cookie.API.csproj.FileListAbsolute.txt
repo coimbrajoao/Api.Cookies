@@ -1,5 +1,4 @@
 C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\appsettings.Development.json
-C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\appsettings.json
 C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\Cookie.API.staticwebassets.endpoints.json
 C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\Cookie.API.exe
 C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\Cookie.API.deps.json
@@ -196,3 +195,7 @@ C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\runtimes\win-x6
 C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\runtimes\win-x64\native\krb5_64.dll
 C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\runtimes\win-x64\native\krbcc64.dll
 C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.API\obj\Debug\net10.0\Cookie.API.sourcelink.json
+C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

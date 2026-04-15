@@ -1,3 +1,5 @@
+using Cookie.Application.Interfaces;
+using Cookie.Application.Services;
 using Cookie.Domain.Interfaces;
 using Cookie.Infra.Data.Context;
 using Cookie.Infra.Data.Repositories;
@@ -20,6 +22,8 @@ public static class DependecyInjection
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IStockRepository, StockRepository>();
         services.AddScoped<IMovementRepository, MovementRepository>();
+
+        services.AddScoped<IProductService, ProductService>();
         return services;
     }
 }

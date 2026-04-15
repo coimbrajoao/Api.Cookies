@@ -13,3 +13,4 @@ C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\refint\Cookie.Application.dll
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.pdb
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\ref\Cookie.Application.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Application\obj\Debug\net10.0\Cookie.Application.sourcelink.json

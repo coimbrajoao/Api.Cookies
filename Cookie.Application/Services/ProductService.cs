@@ -1,5 +1,6 @@
 using Cookie.Application.DTOs;
 using Cookie.Application.Interfaces;
+using Cookie.Application.Mapper;
 using Cookie.Domain.Interfaces;
 
 namespace Cookie.Application.Services;
@@ -15,26 +16,51 @@ public class ProductService : IProductService
     
     public async Task<ProductGetDto> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var product =  await _productRepository.GetByIdAsync(id);
+        if (product == null)
+        {
+            return null;
+        }
+        var productGet = ProductMapper.MapToProductGetDto(product);
+
+        return productGet;
     }
 
     public async Task<List<ProductGetDto>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var list  = await _productRepository.GetAllAsync();
+
+        if (list == null)
+        {
+            return null;
+        }
+        return list.Select(ProductMapper.MapToProductGetDto).ToList();
     }
 
-    public async Task<ProductGetDto> AddAsync(ProductRequestDto product)
+    public async Task<ProductGetDto> AddAsync(ProductRequestDto productGetDto)
     {
-        throw new NotImplementedException();
+        var productPost = ProductMapper.MapToProduct(productGetDto);
+        await _productRepository.AddAsync(productPost);
+        var productGet = ProductMapper.MapToProductGetDto(productPost);
+        return productGet;
     }
 
-    public async Task<ProductGetDto> UpdateAsync(ProductUpdateDTO product)
+    public async Task<ProductGetDto> UpdateAsync(ProductUpdateDTO productUpdateDto)
     {
-        throw new NotImplementedException();
+        var product  = ProductMapper.mapToProductUpdateDto(productUpdateDto);
+        
+        var updateProduct =  await _productRepository.UpdateAsync(product);
+        if (updateProduct == null)
+        {
+            return null;
+        }
+
+        return ProductMapper.MapToProductGetDto(updateProduct);
     }
 
-    public async Task<ProductGetDto> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        var product = await _productRepository.DeleteAsync(id);
+        return product;
     }
 }

@@ -9,3 +9,4 @@ C:\Users\coimb\RiderProjects\Cookie\Cookie.Domain\obj\Debug\net10.0\Cookie.Domai
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Domain\obj\Debug\net10.0\refint\Cookie.Domain.dll
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Domain\obj\Debug\net10.0\Cookie.Domain.pdb
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Domain\obj\Debug\net10.0\ref\Cookie.Domain.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Domain\obj\Debug\net10.0\Cookie.Domain.sourcelink.json

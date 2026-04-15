@@ -63,3 +63,4 @@ C:\Users\coimb\RiderProjects\Cookie\Cookie.Infra.Ioc\bin\Debug\net10.0\BuildHost
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Infra.Ioc\bin\Debug\net10.0\BuildHost-netcore\tr\System.CommandLine.resources.dll
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Infra.Ioc\bin\Debug\net10.0\BuildHost-netcore\zh-Hans\System.CommandLine.resources.dll
 C:\Users\coimb\RiderProjects\Cookie\Cookie.Infra.Ioc\bin\Debug\net10.0\BuildHost-netcore\zh-Hant\System.CommandLine.resources.dll
+C:\Users\coimb\RiderProjects\Cookie\Cookie.Infra.Ioc\obj\Debug\net10.0\Cookie.Infra.Ioc.sourcelink.json

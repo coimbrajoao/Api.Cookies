@@ -10,6 +10,7 @@ public class Movement
     public decimal Amount { get; private set; }
     public MovementType TypeMovement { get; private set; }
     
+    public Movement(){}
     public Movement(MovementType type, decimal amount)
     {
         if (amount <= 0)
