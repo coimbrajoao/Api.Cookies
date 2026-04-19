@@ -2,28 +2,73 @@ namespace Cookie.Domain.Entities;
 
 public class Product
 {
-    public int Id { get; set; }
-    public string Name { get;  set; }
-    public string Description { get;  set; }
-    public decimal Price { get;  set; }
-    public string Flavor { get;  set; }
-    public ICollection<Stock> Stocks { get; set; } = new List<Stock>();
+    public int Id { get; private set; }
+    public string Name { get;  private set; } = null!;
+    public string Description { get;  private set; } = null!;
+    public decimal Price { get;  private set; }
+    public string Flavor { get;  private set; } = null!;
+    public ICollection<Stock> Stocks { get; init; } = new List<Stock>();
 
     public Product(){}
-    public Product(string name, string description, decimal price, string flavor)
+    public Product(string name, string description, string flavor, decimal price)
+    {
+        UpdateName(name);
+        UpdateDescription(description);
+        UpdateFlavor(flavor);
+        SetPrice(price);
+    }
+
+    public void SetPrice(decimal price)
+    {
+        if (price <= 0)
+            throw new ArgumentException("Preço deve ser maior que zero");
+
+        if (price == Price)
+        {
+            return;
+        }
+        
+        
+        Price = price;
+    }
+
+    public void UpdateName(string name)
     {
         if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("O Valor de nome não pode ser vazio ou nulo");
-        if (string.IsNullOrWhiteSpace(description))
-            throw new ArgumentException("O Valor de descrição não pode ser vazio ou nulo");
-        if (string.IsNullOrWhiteSpace(flavor))
-            throw new ArgumentException("O Valor de sabor não pode ser vazio ou nulo");
-        if(price <= 0)
-            throw new ArgumentException("O valor de precisa ser maior que zero");
+        {
+            throw new ArgumentException("Nome invalido");
+        }
+        
+        if(name == Name)
+            return;
         
         Name = name;
+    }
+
+    public void UpdateDescription(string description)
+    {
+        if (string.IsNullOrWhiteSpace(description))
+        {
+           throw new ArgumentException("Description invalido");
+        }
+        
+        if(description == Description)
+            return;
+        
         Description = description;
-        Price = price;
+    }
+
+    public void UpdateFlavor(string flavor)
+    {
+        if (string.IsNullOrWhiteSpace(flavor))
+        {
+            throw new ArgumentException("Flavor invalido");
+        }
+        
+        if (flavor == Flavor) 
+            return;
         Flavor = flavor;
     }
+    
+
 }

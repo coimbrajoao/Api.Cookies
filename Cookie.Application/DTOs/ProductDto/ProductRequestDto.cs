@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Cookie.Application.DTOs;
+namespace Cookie.Application.DTOs.ProductDto;
 
 public class ProductRequestDto
 {

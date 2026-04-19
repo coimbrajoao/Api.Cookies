@@ -11,7 +11,7 @@ public class StockConfiguration : IEntityTypeConfiguration<Stock>
         builder.HasKey(c => c.Id);
         builder.Property(c => c.Quantity)
             .IsRequired();
-        builder.Property(c => c.Price)
+        builder.Property(c => c.UnitPrice)
             .IsRequired();
         builder.Property(c => c.CreatedAt)
             .IsRequired();

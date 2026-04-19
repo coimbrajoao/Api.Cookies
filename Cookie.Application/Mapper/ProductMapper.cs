@@ -1,4 +1,4 @@
-using Cookie.Application.DTOs;
+using Cookie.Application.DTOs.ProductDto;
 using Cookie.Domain.Entities;
 
 namespace Cookie.Application.Mapper;
@@ -7,25 +7,10 @@ public static class ProductMapper
 {
     public static Product MapToProduct(ProductRequestDto productRequest)
     {
-        return new Product
-        {
-            Name = productRequest.Name,
-            Description = productRequest.Description,
-            Price = productRequest.Price,
-            Flavor = productRequest.Flavor,
-        };
+        return new Product(productRequest.Name, productRequest.Description,productRequest.Flavor,productRequest.Price);
+  
     }
-
-    public static Product mapToProductUpdateDto(ProductUpdateDTO productUpdateDto)
-    {
-        return new Product
-        {
-            Name = productUpdateDto.Name,
-            Description = productUpdateDto.Description,
-            Price = productUpdateDto.Price,
-            Flavor = productUpdateDto.Flavor,
-        };
-    }
+    
     
     public static ProductGetDto MapToProductGetDto(Product product)
     {
