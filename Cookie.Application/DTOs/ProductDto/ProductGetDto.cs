@@ -1,6 +1,6 @@
 using Cookie.Domain.Entities;
 
-namespace Cookie.Application.DTOs;
+namespace Cookie.Application.DTOs.ProductDto;
 
 public class ProductGetDto
 {

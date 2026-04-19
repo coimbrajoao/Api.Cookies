@@ -31,14 +31,12 @@ public class StockRepository : IStockRepository
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var  stock = _context.Stock.Find(id);
-        if (stock != null)
-        {
-            _context.Stock.Remove(stock);
-            return true;
-        }
+        var  stock = await _context.Stock.FindAsync(id);
+        if (stock == null) return false;
+        _context.Stock.Remove(stock);
+        await _context.SaveChangesAsync();
+        return true;
 
-        return false;
     }
 
     public async Task<List<Stock>> GetAllAsync()

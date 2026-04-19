@@ -1,22 +1,15 @@
-using Cookie.Application.DTOs;
+using Cookie.Application.DTOs.ProductDto;
 using Cookie.Application.Interfaces;
 using Cookie.Application.Mapper;
 using Cookie.Domain.Interfaces;
 
 namespace Cookie.Application.Services;
 
-public class ProductService : IProductService
+public class ProductService(IProductRepository productRepository) : IProductService
 {
-    private readonly IProductRepository _productRepository;
-    
-    public ProductService(IProductRepository productRepository)
-    {
-        _productRepository = productRepository;
-    }
-    
     public async Task<ProductGetDto> GetByIdAsync(int id)
     {
-        var product =  await _productRepository.GetByIdAsync(id);
+        var product =  await productRepository.GetByIdAsync(id);
         if (product == null)
         {
             return null;
@@ -28,7 +21,7 @@ public class ProductService : IProductService
 
     public async Task<List<ProductGetDto>> GetAllAsync()
     {
-        var list  = await _productRepository.GetAllAsync();
+        var list  = await productRepository.GetAllAsync();
 
         if (list == null)
         {
@@ -40,27 +33,28 @@ public class ProductService : IProductService
     public async Task<ProductGetDto> AddAsync(ProductRequestDto productGetDto)
     {
         var productPost = ProductMapper.MapToProduct(productGetDto);
-        await _productRepository.AddAsync(productPost);
+        await productRepository.AddAsync(productPost);
         var productGet = ProductMapper.MapToProductGetDto(productPost);
         return productGet;
     }
 
-    public async Task<ProductGetDto> UpdateAsync(ProductUpdateDTO productUpdateDto)
+    public async Task<ProductGetDto> UpdateAsync(int id,ProductUpdateDto productUpdateDto)
     {
-        var product  = ProductMapper.mapToProductUpdateDto(productUpdateDto);
-        
-        var updateProduct =  await _productRepository.UpdateAsync(product);
-        if (updateProduct == null)
+        var productUpdate = await productRepository.GetByIdAsync(id);
+        if (productUpdate == null)
         {
-            return null;
+            throw new KeyNotFoundException("Produto não foi encontrado");
         }
 
-        return ProductMapper.MapToProductGetDto(updateProduct);
+        ProductMapper.MapToProductUpdateDto(productUpdate, productUpdateDto);
+         await productRepository.UpdateAsync(productUpdate);
+        
+        return ProductMapper.MapToProductGetDto(productUpdate);
     }
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var product = await _productRepository.DeleteAsync(id);
+        var product = await productRepository.DeleteAsync(id);
         return product;
     }
 }

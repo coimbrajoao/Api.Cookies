@@ -24,6 +24,7 @@ public static class DependecyInjection
         services.AddScoped<IMovementRepository, MovementRepository>();
 
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IStockService, StockService>();
         return services;
     }
 }
