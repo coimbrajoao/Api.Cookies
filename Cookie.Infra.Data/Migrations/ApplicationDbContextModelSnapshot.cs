@@ -25,16 +25,24 @@ namespace Cookie.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TypeMovement")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StockId");
 
                     b.ToTable("Movement");
                 });
@@ -91,6 +99,17 @@ namespace Cookie.Infra.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Stock");
+                });
+
+            modelBuilder.Entity("Cookie.Domain.Entities.Movement", b =>
+                {
+                    b.HasOne("Cookie.Domain.Entities.Stock", "Stock")
+                        .WithMany()
+                        .HasForeignKey("StockId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Stock");
                 });
 
             modelBuilder.Entity("Cookie.Domain.Entities.Stock", b =>

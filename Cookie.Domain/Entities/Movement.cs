@@ -7,17 +7,24 @@ public class Movement
     public int Id { get; set; }
     public DateTime CreatedAt { get; private set; }
     
-    public decimal Amount { get; private set; }
+    public DateTime ModifiedAt { get; private set; }
+    public int Quantity { get; private set; }
     public MovementType TypeMovement { get; private set; }
     
+    public int StockId { get; private set; }
+    
+    public virtual Stock  Stock { get; set; }
+    
     public Movement(){}
-    public Movement(MovementType type, decimal amount)
+    public Movement(MovementType type, int quantity,  int stockId)
     {
-        if (amount <= 0)
+        if (quantity <= 0)
             throw new ArgumentException("O valor deve ser maior que zero");
         TypeMovement = type;
-        Amount = amount;
+        Quantity = quantity;
         CreatedAt = DateTime.UtcNow;
+        StockId = stockId;
     }
+    
     
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cookie.Infra.Ioc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6430239ec74e4c1d9c08d45be852a870d66b72a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d8bc018ab622e6b873771618ee2dc366df0a7aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cookie.Infra.Ioc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cookie.Infra.Ioc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
