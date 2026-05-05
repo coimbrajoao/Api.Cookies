@@ -25,6 +25,7 @@ public static class DependecyInjection
 
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IStockService, StockService>();
+        services.AddScoped<IMovementService, MovementService>();
         return services;
     }
 }

@@ -1,0 +1,15 @@
+using Cookie.Application.DTOs;
+using Cookie.Domain.Entities;
+
+namespace Cookie.Application.Interfaces;
+
+public interface IMovementService
+{
+    
+    Task<IEnumerable<MovementResponseDto>> GetMovementsAsync();
+    Task<MovementResponseDto> GetMovementAsync(int id);
+    Task<MovementResponseDto> AddMovementAsync(MovementRequestDto movement);
+    Task<MovementResponseDto> UpdateMovementAsync(MovementResponseDto movement);
+    Task<bool> DeleteMovementAsync(int id);
+    
+}

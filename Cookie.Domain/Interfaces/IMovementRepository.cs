@@ -8,4 +8,6 @@ public interface IMovementRepository
     Task<Movement> GetMovementByIdAsync(int Id);
     Task<Movement> AddMovementAsync(Movement movement);
     Task<Movement> UpdateMovementAsync(Movement movement);
+    
+    Task<bool> DeleteMovementAsync(int id);
 }
