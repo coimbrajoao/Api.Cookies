@@ -1,3 +1,4 @@
+using Cookie.API.Middleware;
 using Cookie.Infra.Ioc;
 using Microsoft.OpenApi;
 
@@ -38,6 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

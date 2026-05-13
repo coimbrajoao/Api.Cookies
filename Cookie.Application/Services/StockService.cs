@@ -1,4 +1,5 @@
 using Cookie.Application.DTOs.StockDto;
+using Cookie.Application.Exceptions;
 using Cookie.Application.Interfaces;
 using Cookie.Application.Mapper;
 using Cookie.Domain.Entities;
@@ -18,7 +19,7 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
     public async Task<StockResponseDto> GetStockById(int stockId)
     {
         var stock = await stockRepository.GetByIdAsync(stockId);
-        return (stock == null ? throw new KeyNotFoundException("Estoque não foi encotrado"): StockMapper.MapToStockResponse(stock))!;
+        return (stock == null ? throw new NotFoundException("Estoque não foi encotrado"): StockMapper.MapToStockResponse(stock))!;
     }
 
     public async Task<StockResponseDto> CreateStock(StockRequestDto stockRequestDto)
@@ -27,7 +28,7 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
         var product = await productRepository.GetByIdAsync(stock.ProductId);
         if (product == null)
         {
-            throw new KeyNotFoundException("Produto não encontrado");
+            throw new NotFoundException("Produto não encontrado");
         }
         stock.SetUnitPrice(product.Price);
         await stockRepository.AddAsync(stock);
@@ -39,7 +40,7 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
         var stock = await stockRepository.GetByIdAsync(id);
         if (stock == null)
         {
-            throw new KeyNotFoundException("Estoque não foi encontrado");
+            throw new NotFoundException("Estoque não foi encontrado");
         }
 
         if (stockUpdateDto.ProductId.HasValue && stockUpdateDto.ProductId != stock.ProductId)
@@ -47,7 +48,7 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
             var product = await productRepository.GetByIdAsync(stockUpdateDto.ProductId.Value);
             if (product == null)
             { 
-                throw new KeyNotFoundException("Produto não encontrado");
+                throw new NotFoundException("Produto não encontrado");
             }
         }
         

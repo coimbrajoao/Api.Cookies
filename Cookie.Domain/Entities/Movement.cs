@@ -6,11 +6,9 @@ public class Movement
 {
     public int Id { get; set; }
     public DateTime CreatedAt { get; private set; }
-    
     public int Quantity { get; private set; }
     public MovementType TypeMovement { get; private set; }
     public int StockId { get; private set; }
-    public DateTime ModifiedAt { get; private set; }
     
     public virtual Stock  Stock { get; set; }
     

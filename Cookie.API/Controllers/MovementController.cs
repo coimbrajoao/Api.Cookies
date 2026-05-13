@@ -6,17 +6,13 @@ namespace Cookie.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ServiceController(IMovementService movementService) : Controller
+public class MovementController(IMovementService movementService) : Controller
 {
 
     [HttpPost]
     public async Task<ActionResult> AddMovementAsync(MovementRequestDto movementRequestDto)
     {
         var movement = await movementService.AddMovementAsync(movementRequestDto);
-        if (movement == null)
-        {
-            return BadRequest("Não foi possivel criar o momento");
-        }
         return Ok(movement);
     }
 

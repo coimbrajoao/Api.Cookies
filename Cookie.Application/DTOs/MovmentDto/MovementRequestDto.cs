@@ -6,11 +6,11 @@ namespace Cookie.Application.DTOs;
 public class MovementRequestDto
 {
     [Required]
-    public int Quantity { get; }
+    public int Quantity { get; set; }
     
     [Required]
-    public int StockId { get; }
+    public int StockId { get;set; }
     
     [Required]
-    public MovementType TypeMovement { get; }
+    public MovementType TypeMovement { get; set;}
 }

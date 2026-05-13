@@ -1,4 +1,5 @@
 using Cookie.Application.DTOs.ProductDto;
+using Cookie.Application.Exceptions;
 using Cookie.Application.Interfaces;
 using Cookie.Application.Mapper;
 using Cookie.Domain.Interfaces;
@@ -12,7 +13,7 @@ public class ProductService(IProductRepository productRepository) : IProductServ
         var product =  await productRepository.GetByIdAsync(id);
         if (product == null)
         {
-            return null;
+            throw new NotFoundException("Produto não foi encontrado");;
         }
         var productGet = ProductMapper.MapToProductGetDto(product);
 
@@ -25,7 +26,7 @@ public class ProductService(IProductRepository productRepository) : IProductServ
 
         if (list == null)
         {
-            return null;
+            throw new NotFoundException("Nenhum produto foi encontrado");
         }
         return list.Select(ProductMapper.MapToProductGetDto).ToList();
     }
@@ -43,7 +44,7 @@ public class ProductService(IProductRepository productRepository) : IProductServ
         var productUpdate = await productRepository.GetByIdAsync(id);
         if (productUpdate == null)
         {
-            throw new KeyNotFoundException("Produto não foi encontrado");
+            throw new NotFoundException("Produto não foi encontrado");
         }
 
         if (!string.IsNullOrWhiteSpace(productUpdateDto.Name))

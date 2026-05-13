@@ -35,10 +35,7 @@ public class StockController(IStockService stockService) : Controller
     public async Task<ActionResult> GetStockById(int id)
     {
         var stockById = await stockService.GetStockById(id);
-        if (stockById == null)
-        {
-            return NotFound("Não foi possivel achar o estoque informado");
-        }
+        
         return Ok(stockById);
     }
 
@@ -46,10 +43,7 @@ public class StockController(IStockService stockService) : Controller
     public async Task<ActionResult> UpdateStock(int id, StockUpdateDto stockUpdatetDto)
     {
         var updateStock = await stockService.UpdateStock(id,stockUpdatetDto);
-        if (updateStock == null)
-        {
-            return BadRequest("Não foi possivel atualizar o estoque");
-        }
+        
         return Ok(updateStock);
     }
 
@@ -57,10 +51,7 @@ public class StockController(IStockService stockService) : Controller
     public async Task<ActionResult> DeleteStock(int id)
     {
         var stock = await stockService.DeleteStock(id);
-        if (stock == null)
-        {
-            return BadRequest("Não foi possivel excluir");
-        }
+       
         return Ok(new {Message = "Estoque excluido com sucesso"});
     }
     
