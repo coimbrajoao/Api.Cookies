@@ -52,7 +52,6 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
             }
         }
         
-        
         await stockRepository.UpdateAsync(stock);
         return StockMapper.MapToStockResponse(stock);
     }

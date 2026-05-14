@@ -30,14 +30,7 @@ public class MovementRepository : IMovementRepository
         await _context.SaveChangesAsync();
         return movement;
     }
-
-    public async Task<Movement> UpdateMovementAsync(Movement movement)
-    {
-        _context.Movement.Update(movement);
-        await _context.SaveChangesAsync();
-        return movement;
-    }
-
+    
     public async Task<bool> DeleteMovementAsync(int id)
     {
         var movement = await _context.Movement.FindAsync(id);
