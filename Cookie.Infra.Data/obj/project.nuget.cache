@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q99IgBaLGXw=",
+  "dgSpecHash": "vh2IYG291wI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
+  "projectFilePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\coimb\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\google.protobuf\\3.32.0\\google.protobuf.3.32.0.nupkg.sha512",
@@ -65,9 +65,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-37gx-xxp4-5rgx",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
+      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
+      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
       "libraryId": "System.Security.Cryptography.Xml",
       "targetGraphs": [
         "net10.0"
@@ -77,9 +77,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-w3x6-4m5h-cxqf",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
+      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
+      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
       "libraryId": "System.Security.Cryptography.Xml",
       "targetGraphs": [
         "net10.0"

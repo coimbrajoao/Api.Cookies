@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\Cookie.API.csproj": {}
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\Cookie.API.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\Cookie.API.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj",
         "projectName": "Cookie.API",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\Cookie.API.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj": {
-                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj"
+              "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj": {
+                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj"
               }
             }
           }
@@ -500,14 +500,14 @@
         }
       }
     },
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj",
         "projectName": "Cookie.Application",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -522,8 +522,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj": {
-                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj"
+              "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj": {
+                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj"
               }
             }
           }
@@ -837,14 +837,14 @@
         }
       }
     },
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj",
         "projectName": "Cookie.Domain",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1170,14 +1170,14 @@
         }
       }
     },
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
         "projectName": "Cookie.Infra.Data",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1192,8 +1192,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj": {
-                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj"
+              "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj": {
+                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj"
               }
             }
           }
@@ -1529,14 +1529,14 @@
         }
       }
     },
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj",
         "projectName": "Cookie.Infra.Ioc",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1551,14 +1551,14 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj": {
-                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj"
+              "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj": {
+                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj"
               },
-              "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj": {
-                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj"
+              "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj": {
+                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj"
               },
-              "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj": {
-                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj"
+              "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj": {
+                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj"
               }
             }
           }

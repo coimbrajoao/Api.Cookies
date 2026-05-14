@@ -3767,11 +3767,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\Cookie.API.csproj",
+      "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj",
       "projectName": "Cookie.API",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\Cookie.API.csproj",
+      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj",
       "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.API\\obj\\",
+      "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3786,8 +3786,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj": {
-              "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj"
+            "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj": {
+              "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj"
             }
           }
         }

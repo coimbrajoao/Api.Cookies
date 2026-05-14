@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj",
       "projectName": "Cookie.Domain",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj",
+      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj",
       "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\obj\\",
+      "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"

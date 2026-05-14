@@ -3,6 +3,7 @@ using System;
 using Cookie.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cookie.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260606010718_alterando-tabela")]
+    partial class alterandotabela
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,9 +31,6 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int?>("IdMaster")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -41,8 +41,6 @@ namespace Cookie.Infra.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdMaster");
 
                     b.HasIndex("StockId");
 
@@ -105,18 +103,11 @@ namespace Cookie.Infra.Data.Migrations
 
             modelBuilder.Entity("Cookie.Domain.Entities.Movement", b =>
                 {
-                    b.HasOne("Cookie.Domain.Entities.Movement", "ParentMovement")
-                        .WithMany()
-                        .HasForeignKey("IdMaster")
-                        .OnDelete(DeleteBehavior.NoAction);
-
                     b.HasOne("Cookie.Domain.Entities.Stock", "Stock")
                         .WithMany()
                         .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("ParentMovement");
 
                     b.Navigation("Stock");
                 });

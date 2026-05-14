@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj": {}
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj",
         "projectName": "Cookie.Application",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\Cookie.Application.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Application\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj": {
-                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj"
+              "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj": {
+                "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj"
               }
             }
           }
@@ -341,14 +341,14 @@
         }
       }
     },
-    "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj",
         "projectName": "Cookie.Domain",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\Cookie.Domain.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Cookie\\Cookie.Domain\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"
