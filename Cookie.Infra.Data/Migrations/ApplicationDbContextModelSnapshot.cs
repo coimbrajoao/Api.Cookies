@@ -28,9 +28,6 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int?>("IdMaster")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -40,11 +37,14 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<int>("TypeMovement")
                         .HasColumnType("int");
 
+                    b.Property<int?>("idMaster")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("IdMaster");
-
                     b.HasIndex("StockId");
+
+                    b.HasIndex("idMaster");
 
                     b.ToTable("Movement");
                 });
@@ -105,16 +105,16 @@ namespace Cookie.Infra.Data.Migrations
 
             modelBuilder.Entity("Cookie.Domain.Entities.Movement", b =>
                 {
-                    b.HasOne("Cookie.Domain.Entities.Movement", "ParentMovement")
-                        .WithMany()
-                        .HasForeignKey("IdMaster")
-                        .OnDelete(DeleteBehavior.NoAction);
-
                     b.HasOne("Cookie.Domain.Entities.Stock", "Stock")
                         .WithMany()
                         .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.HasOne("Cookie.Domain.Entities.Movement", "ParentMovement")
+                        .WithMany()
+                        .HasForeignKey("idMaster")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("ParentMovement");
 
