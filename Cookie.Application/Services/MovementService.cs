@@ -59,48 +59,48 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
         return MovementMapper.MapMovementResponse(movement);
     }
 
-     public async Task<MovementResponseDto> RevertMovementAsync(int id)
-     {
-        var movement = await movementRepository.GetMovementByIdAsync(id);
-    
-    
-        if (movement == null)
-        {
-            throw new NotFoundException("Nenhum movimento foi encontrado");
-        }
-    
-        if (movement.IdMaster != null)
-            throw new BadRequestException("Este movimento já é um estorno e não pode ser revertido.");
-    
-        var  stock = await stockRepository.GetByIdAsync(movement.StockId);
-    
-        if (stock == null)
-        {
-            throw new NotFoundException("Nenhum stock foi encontrado");
-        }
-    
-        if (movement.TypeMovement == MovementType.Entry)
-        {
-            if (stock.Quantity < movement.Quantity)
-            {
-                throw new BadRequestException("Saldo insuficiente para estornar esta entrada.");
-            }
-        
-            stock.DecreaseStock(movement.Quantity);
-        }
-        else
-        {
-            stock.IncreaseStock(movement.Quantity);
-        }
-    
-    
-        var reverse = movement.GenerateReversal();
-     
-        await movementRepository.AddMovementAsync(reverse);
-        await stockRepository.UpdateAsync(stock);
-     
-        return MovementMapper.MapMovementResponse(movement);
-     }
+    public async Task<MovementResponseDto> RevertMovementAsync(int id)
+    {
+       var movement = await movementRepository.GetMovementByIdAsync(id);
+       
+       
+       if (movement == null)
+       {
+           throw new NotFoundException("Nenhum movimento foi encontrado");
+       }
+       
+       if (movement.IdMaster != null)
+           throw new BadRequestException("Este movimento já é um estorno e não pode ser revertido.");
+       
+       var  stock = await stockRepository.GetByIdAsync(movement.StockId);
+
+       if (stock == null)
+       {
+           throw new NotFoundException("Nenhum stock foi encontrado");
+       }
+
+       if (movement.TypeMovement == MovementType.Entry)
+       {
+           if (stock.Quantity < movement.Quantity)
+           {
+               throw new BadRequestException("Saldo insuficiente para estornar esta entrada.");
+           }
+           
+           stock.DecreaseStock(movement.Quantity);
+       }
+       else
+       {
+           stock.IncreaseStock(movement.Quantity);
+       }
+
+
+       var reverse = movement.GenerateReversal();
+       
+       await movementRepository.AddMovementAsync(reverse);
+      await stockRepository.UpdateAsync(stock);
+       
+       return MovementMapper.MapMovementResponse(movement);
+    }
 
     public async Task<bool> DeleteMovementAsync(int id)
     {
