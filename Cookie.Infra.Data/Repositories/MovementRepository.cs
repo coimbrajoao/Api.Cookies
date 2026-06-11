@@ -6,36 +6,30 @@ using ZstdSharp.Unsafe;
 
 namespace Cookie.Infra.Data.Repositories;
 
-public class MovementRepository : IMovementRepository
+public class MovementRepository(ApplicationDbContext context) : IMovementRepository
 {
-    private readonly ApplicationDbContext _context;
-
-    public MovementRepository(ApplicationDbContext context)
-    {
-        _context = context;
-    }
     public async Task<List<Movement>> GetAllMovementsAsync()
     {
-        return await _context.Movement.ToListAsync();
+        return await context.Movement.ToListAsync();
     }
 
-    public async Task<Movement> GetMovementByIdAsync(int Id)
+    public async Task<Movement> GetMovementByIdAsync(int id)
     {
-        return await _context.Movement.FindAsync(Id);
+        return await context.Movement.FindAsync(id);
     }
 
     public async Task<Movement> AddMovementAsync(Movement movement)
     {
-        _context.Movement.Add(movement);
-        await _context.SaveChangesAsync();
+        context.Movement.Add(movement);
+        await context.SaveChangesAsync();
         return movement;
     }
     
     public async Task<bool> DeleteMovementAsync(int id)
     {
-        var movement = await _context.Movement.FindAsync(id);
-        _context.Movement.Remove(movement);
-        await  _context.SaveChangesAsync();
+        var movement = await context.Movement.FindAsync(id);
+        if (movement != null) context.Movement.Remove(movement);
+        await  context.SaveChangesAsync();
         return true;
         
     }

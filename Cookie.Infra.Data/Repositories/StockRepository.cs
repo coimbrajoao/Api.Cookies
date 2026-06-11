@@ -6,52 +6,45 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cookie.Infra.Data.Repositories;
 
-public class StockRepository : IStockRepository
+public class StockRepository(ApplicationDbContext context) : IStockRepository
 {
-    private readonly ApplicationDbContext _context;
-
-    public StockRepository(ApplicationDbContext context)
-    {
-        _context = context;
-    }
-    
     public async Task<Stock> AddAsync(Stock stock)
     {
-        _context.Stock.Add(stock);
-        await _context.SaveChangesAsync();
+        context.Stock.Add(stock);
+        await context.SaveChangesAsync();
         return stock;
     }
 
     public async Task<Stock?> UpdateAsync(Stock stock)
     {
-        _context.Stock.Update(stock);
-        await _context.SaveChangesAsync();
+        context.Stock.Update(stock);
+        await context.SaveChangesAsync();
         return stock;
     }
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var  stock = await _context.Stock.FindAsync(id);
+        var  stock = await context.Stock.FindAsync(id);
         if (stock == null) return false;
-        _context.Stock.Remove(stock);
-        await _context.SaveChangesAsync();
+        context.Stock.Remove(stock);
+        await context.SaveChangesAsync();
         return true;
 
     }
 
     public async Task<List<Stock>> GetAllAsync()
     {
-        return await _context.Stock.ToListAsync();
+        return await context.Stock.ToListAsync();
     }
 
     public async Task<Stock?> GetByIdAsync(int id)
     {
-        return await _context.Stock.FindAsync(id);
+        return await context.Stock.FindAsync(id);
     }
 
     public async Task<List<Stock>> GetByProductIdAsync(int productId)
     {
-        _context.Stock.Find(productId);
-        return await _context.Stock.ToListAsync();
+        context.Stock.Find(productId);
+        return await context.Stock.ToListAsync();
     }
 }

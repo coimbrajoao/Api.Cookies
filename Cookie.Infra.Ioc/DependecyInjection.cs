@@ -15,7 +15,7 @@ public static class DependecyInjection
     {
         services.AddDbContext<ApplicationDbContext>(options =>
         {
-            options.UseMySQL(configuration.GetConnectionString("DefaultConnection"),
+            options.UseMySQL(configuration.GetConnectionString("DefaultConnection") ?? "",
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
         });
 

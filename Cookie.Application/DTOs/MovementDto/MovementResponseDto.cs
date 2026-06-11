@@ -1,6 +1,6 @@
 using Cookie.Domain.Enum;
 
-namespace Cookie.Application.DTOs;
+namespace Cookie.Application.DTOs.MovementDto;
 
 public class MovementResponseDto
 {

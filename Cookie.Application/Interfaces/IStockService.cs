@@ -1,6 +1,4 @@
-using Cookie.Application.DTOs;
 using Cookie.Application.DTOs.StockDto;
-using Cookie.Domain.Entities;
 
 namespace Cookie.Application.Interfaces;
 

@@ -4,10 +4,10 @@ namespace Cookie.Test.Entities;
 
 public class ProductTest
 {
-    const string name = "triplo";
-    const string description = "triplo chocolate";
-    const decimal price = 15;
-    const string flavor = "Nutela";
+    private const string Name = "triplo";
+    private const string Description = "triplo chocolate";
+    const decimal Price = 15;
+    const string FlavorTest = "Nutela";
     
     public class Constructor : ProductTest
     {
@@ -16,14 +16,14 @@ public class ProductTest
         {
             
             //act
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
 
             //assert
 
-            Assert.Equal(name, product.Name);
-            Assert.Equal(description, product.Description);
-            Assert.Equal(price, product.Price);
-            Assert.Equal(flavor, product.Flavor);
+            Assert.Equal(Name, product.Name);
+            Assert.Equal(Description, product.Description);
+            Assert.Equal(Price, product.Price);
+            Assert.Equal(FlavorTest, product.Flavor);
             Assert.NotNull(product.Stocks);
         }
 
@@ -48,13 +48,13 @@ public class ProductTest
         
         [Theory]
         [InlineData("Kinder")]
-        [InlineData(name)]
+        [InlineData(Name)]
         public void UpdateName_GivenValidParameters_ShouldSetProperties(
             string invalidName)
         {
             
             //act
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
                 
             product.UpdateName(invalidName);
             
@@ -70,7 +70,7 @@ public class ProductTest
             string nameExpected)
         {
             //arrange
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
         
             //assert
             Assert.Throws<ArgumentException>(() => product.UpdateName(nameExpected));
@@ -81,11 +81,11 @@ public class ProductTest
     {
         [Theory]
         [InlineData("nova descrição")]
-        [InlineData(description)]
+        [InlineData(Description)]
         public void UpdateDescription_GivenValidParameters_ShouldSetProperties(string descriptionExpected)
         {
             //arrange
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
             
             //act
             product.UpdateDescription(descriptionExpected);
@@ -101,7 +101,7 @@ public class ProductTest
         public void UpdateDescription_GivenInvalidParameters_ShouldThrowArgumentException(string invalidDescription)
         {
             //arrange
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
          
             //act -> assert
             Assert.Throws<ArgumentException>(() => product.UpdateDescription(invalidDescription));
@@ -112,10 +112,10 @@ public class ProductTest
     {
         [Theory]
         [InlineData("novo sabor")]
-        [InlineData(flavor)]
+        [InlineData(FlavorTest)]
         public void UpdateFlavor_GivenValidParameters_ShouldSetProperties(string flavorExpected)
         {
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
             product.UpdateFlavor(flavorExpected);
             Assert.Equal(flavorExpected, product.Flavor);
         }
@@ -126,7 +126,7 @@ public class ProductTest
         [InlineData(" ")]
         public void updateFlavor_GivenInvalidParameters_ShouldThrowArgumentException(string invalidFlavor)
         {
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
             Assert.Throws<ArgumentException>(() => product.UpdateFlavor(invalidFlavor));
         }
     }
@@ -137,7 +137,7 @@ public class ProductTest
         [InlineData(10)]
         public void SetPrice_GivenValidParameters_ShouldSetProperties(decimal priceExpected)
         {
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
             product.SetPrice(priceExpected);
             Assert.Equal(priceExpected, product.Price);
         }
@@ -145,9 +145,9 @@ public class ProductTest
         [Fact]
         public void SetPrice_GivenSamePrice_ShouldMaintainCurrentPrice()
         {
-            var product = new Product(name, description, flavor, price);
-            product.SetPrice(price);
-            Assert.Equal(price, product.Price);
+            var product = new Product(Name, Description, FlavorTest, Price);
+            product.SetPrice(Price);
+            Assert.Equal(Price, product.Price);
             
         }
         
@@ -156,7 +156,7 @@ public class ProductTest
         [InlineData(-5)]
         public void SetPrice_GivenInvalidParameters_ShouldThrowArgumentException(decimal invalidPrice)
         {
-            var product = new Product(name, description, flavor, price);
+            var product = new Product(Name, Description, FlavorTest, Price);
             Assert.Throws<ArgumentException>(() => product.SetPrice(invalidPrice));
         }
     }

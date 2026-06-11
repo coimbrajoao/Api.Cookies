@@ -1,5 +1,4 @@
-using Cookie.Application.DTOs;
-using Cookie.Domain.Entities;
+using Cookie.Application.DTOs.MovementDto;
 
 namespace Cookie.Application.Interfaces;
 

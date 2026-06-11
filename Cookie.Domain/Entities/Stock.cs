@@ -2,7 +2,7 @@ namespace Cookie.Domain.Entities;
 
 public class Stock
 {
-    public int Id { get; set; }
+    public int Id { get; }
     public int ProductId { get; private set; }
     public int Quantity { get; private set; }
     public decimal UnitPrice { get; private set; }

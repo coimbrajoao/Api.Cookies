@@ -1,4 +1,3 @@
-using Cookie.Domain.Entities;
 
 namespace Cookie.Application.DTOs.ProductDto;
 

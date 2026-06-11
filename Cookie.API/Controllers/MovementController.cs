@@ -1,4 +1,4 @@
-using Cookie.Application.DTOs;
+using Cookie.Application.DTOs.MovementDto;
 using Cookie.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

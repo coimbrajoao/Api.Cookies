@@ -1,8 +1,7 @@
-using Cookie.Application.DTOs;
+using Cookie.Application.DTOs.MovementDto;
 using Cookie.Application.Exceptions;
 using Cookie.Application.Interfaces;
 using Cookie.Application.Mapper;
-using Cookie.Domain.Entities;
 using Cookie.Domain.Enum;
 using Cookie.Domain.Interfaces;
 
@@ -24,9 +23,9 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
         return movement == null ? throw new NotFoundException("Nenhum movimento foi encontrado") : MovementMapper.MapMovementResponse(movement);
     }
 
-    public async Task<MovementResponseDto> AddMovementAsync(MovementRequestDto MovementResponseDto)
+    public async Task<MovementResponseDto> AddMovementAsync(MovementRequestDto movementResponseDto)
     {
-        var movement = MovementMapper.MapMovement(MovementResponseDto);
+        var movement = MovementMapper.MapMovement(movementResponseDto);
         if (movement == null)
         {
             throw new NotFoundException("Nenhum movimento foi encontrado");
@@ -106,11 +105,6 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
     {
         var deleted = await movementRepository.DeleteMovementAsync(id);
 
-        if (deleted == null)
-        {
-            throw new NotFoundException("Nenhum movimento foi encontrado");
-        }
-        
         return deleted;
     }
 }
