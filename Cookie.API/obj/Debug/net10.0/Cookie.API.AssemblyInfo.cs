@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cookie.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b696c43a8ff5f890e1a657cd2c07fb6e452e62bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9c4354939cc6a00bd913e0c48ecd501e2d8c093")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cookie.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cookie.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
