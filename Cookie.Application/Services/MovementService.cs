@@ -93,7 +93,7 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
        }
 
 
-       var reverse = movement.GenerateReversal();
+       var reverse = movement.CreateReversal();
        
        await movementRepository.AddMovementAsync(reverse);
       await stockRepository.UpdateAsync(stock);

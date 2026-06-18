@@ -15,7 +15,7 @@ public static class MovementMapper
         return new MovementResponseDto()
         {
             Id = movement.Id,
-            CreatedAt = movement.GetCreatedAt(),
+            CreatedAt = movement.CreatedAt,
             StockId =  movement.StockId,
             TypeMovement = movement.TypeMovement,
             Quantity = movement.Quantity

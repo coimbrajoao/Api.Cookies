@@ -12,11 +12,12 @@ public class Movement
     public MovementType TypeMovement { get; private set; }
     public int StockId { get; private set; }
     
-    public virtual Movement ParentMovement { get; set; }
-    public virtual Stock  Stock { get; set; }
+    public Movement ParentMovement { get; set; }
+    public Stock  Stock { get; set; }
     
     public Movement(){}
-    public Movement(MovementType type, int quantity,  int stockId, int? idMaster)
+    
+    public Movement(MovementType type, int quantity,  int stockId, int? idMaster =  null)
     {
         if (quantity <= 0)
             throw new ArgumentException("O valor deve ser maior que zero");
@@ -26,31 +27,14 @@ public class Movement
         StockId = stockId;
         IdMaster =  idMaster;
     }
-    
-    public Movement(MovementType type, int quantity,  int stockId)
-    {
-        if (quantity <= 0)
-            throw new ArgumentException("O valor deve ser maior que zero");
-        TypeMovement = type;
-        Quantity = quantity;
-        CreatedAt = DateTime.UtcNow;
-        StockId = stockId;
-    }
 
-    
-    public DateTime GetCreatedAt()
+    public Movement CreateReversal()
     {
-        return CreatedAt;
-    }
-
-    public void SetIdMaster(int id)
-    {
-        IdMaster = id;
-    }
-
-    public Movement GenerateReversal()
-    {
-        var reversalType = this.TypeMovement == MovementType.Entry ? MovementType.Exit : MovementType.Exit;
+        if (this.IdMaster.HasValue)
+        {
+            throw new ArgumentException("O movimento é uma reversão e não pode ser revertido novamente");
+        }
+        var reversalType = this.TypeMovement == MovementType.Entry ? MovementType.Exit : MovementType.Entry;
         
         return new Movement(reversalType, Quantity, StockId, Id);
     }

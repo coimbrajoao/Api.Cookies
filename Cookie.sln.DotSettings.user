@@ -4,5 +4,10 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Entities.ProductTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Entities.StockTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Services.StockServiceTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Entities.MovementTest+Contructor.constructor_GivenAllParams_ShouldSetProperties&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Entities.MovementTest+Contructor.constructor_GivenAllParams_ShouldThrowException&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Entities.MovementTest+ReversalMovement.constructor_GivenAllParams_ShouldSetProperties&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Entities.MovementTest+ReversalMovement.CreateReversal_GivenReversalMovement_ShouldThrowException&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
