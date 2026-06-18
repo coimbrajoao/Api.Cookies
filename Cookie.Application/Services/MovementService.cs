@@ -4,16 +4,22 @@ using Cookie.Application.Interfaces;
 using Cookie.Application.Mapper;
 using Cookie.Domain.Enum;
 using Cookie.Domain.Interfaces;
+using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
 public class MovementService(IMovementRepository movementRepository, IStockRepository stockRepository) : IMovementService
 {
-    public async Task<IEnumerable<MovementResponseDto>> GetMovementsAsync()
+    public async Task<PagedList<MovementResponseDto>> GetMovementsAsync(int pageNumber, int pageSize)
     {
-        var movements = await movementRepository.GetAllMovementsAsync();
+        var movements = await movementRepository.GetAllMovementsAsync(pageNumber, pageSize);
         
-        return movements.Select(MovementMapper.MapMovementResponse).ToList();
+        var movementsDto = movements
+            .Select(MovementMapper.MapMovementResponse)
+            .ToList();
+
+        return new PagedList<MovementResponseDto>(movementsDto, movements.CurrentPage, movements.PageSize, movements.TotalCount);
+        
     }
 
     public async Task<MovementResponseDto> GetMovementAsync(int id)

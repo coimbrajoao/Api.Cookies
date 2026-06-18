@@ -1,3 +1,5 @@
+using Cookie.API.Extensions;
+using Cookie.API.Models;
 using Cookie.Application.DTOs.MovementDto;
 using Cookie.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +19,13 @@ public class MovementController(IMovementService movementService) : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult> GetMovementsAsync()
+    public async Task<ActionResult> GetMovementsAsync([FromQuery] PaginationParams paginationParams)
     {
-        var movements = await movementService.GetMovementsAsync();
+        var movements = await movementService.GetMovementsAsync(paginationParams.PageNumber, paginationParams.PageSize);
+        
+        Response.AddPaginationHeader(new PaginationHeader
+            (paginationParams.PageNumber, paginationParams.PageSize, movements.TotalPages, movements.TotalCount));
+        
         return Ok(movements);
     }
 

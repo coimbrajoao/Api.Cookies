@@ -1,3 +1,5 @@
+using Cookie.API.Extensions;
+using Cookie.API.Models;
 using Cookie.Application.DTOs.ProductDto;
 using Cookie.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -40,9 +42,13 @@ public class ProductController(IProductService productService) : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult> GetProductsAsync()
+    public async Task<ActionResult> GetProductsAsync([FromQuery]PaginationParams paginationParams)
     {
-        var products = await productService.GetAllAsync();
+        var products = await productService.GetAllAsync(paginationParams.PageNumber, paginationParams.PageSize);
+        
+        Response.AddPaginationHeader(
+            new PaginationHeader(paginationParams.PageNumber, paginationParams.PageSize, products.TotalPages, products.TotalCount));
+        
         return Ok(products);
     }
     

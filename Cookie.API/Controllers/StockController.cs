@@ -1,3 +1,5 @@
+using Cookie.API.Extensions;
+using Cookie.API.Models;
 using Cookie.Application.DTOs.StockDto;
 using Cookie.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -21,13 +23,12 @@ public class StockController(IStockService stockService) : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult> GetAllStock()
+    public async Task<ActionResult> GetAllStock([FromQuery] PaginationParams paginationParams)
     {
-        var allStock = await stockService.GetStocks();
-        if(allStock == null)
-        {
-            return NotFound("Não foi possivel achar estoque");
-        }
+        var allStock = await stockService.GetStocks(paginationParams.PageNumber, paginationParams.PageSize);
+        
+        Response.AddPaginationHeader(new PaginationHeader(paginationParams.PageNumber, paginationParams.PageSize, allStock.TotalPages, allStock.TotalCount));
+        
         return Ok(allStock);
     }
 

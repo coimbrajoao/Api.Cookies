@@ -4,16 +4,19 @@ using Cookie.Application.Interfaces;
 using Cookie.Application.Mapper;
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
+using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
 public class StockService(IStockRepository stockRepository, IProductRepository productRepository) : IStockService
 
 {
-    public async Task<List<StockResponseDto>> GetStocks()
+    public async Task<PagedList<StockResponseDto>> GetStocks(int pageNumber, int pageSize)
     {
-        var list = await stockRepository.GetAllAsync();
-        return list.Select(StockMapper.MapToStockResponse).ToList();
+        var list = await stockRepository.GetAllAsync(pageNumber, pageSize);
+        
+        var stockDto = list.Select(StockMapper.MapToStockResponse).ToList();
+        return new PagedList<StockResponseDto>(stockDto, list.CurrentPage, list.PageSize, list.TotalCount);
     }
 
     public async Task<StockResponseDto> GetStockById(int stockId)

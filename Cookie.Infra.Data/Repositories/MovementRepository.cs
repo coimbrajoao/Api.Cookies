@@ -1,6 +1,8 @@
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
+using Cookie.Domain.Pagination;
 using Cookie.Infra.Data.Context;
+using Cookie.Infra.Data.Helpers;
 using Microsoft.EntityFrameworkCore;
 using ZstdSharp.Unsafe;
 
@@ -8,9 +10,11 @@ namespace Cookie.Infra.Data.Repositories;
 
 public class MovementRepository(ApplicationDbContext context) : IMovementRepository
 {
-    public async Task<List<Movement>> GetAllMovementsAsync()
+    public async Task<PagedList<Movement>> GetAllMovementsAsync(int pageNumber, int pageSize)
     {
-        return await context.Movement.ToListAsync();
+        var query = context.Movement.AsQueryable().AsNoTracking();
+        
+        return await PaginationHelper.CreateAsync(query, pageNumber, pageSize);
     }
 
     public async Task<Movement> GetMovementByIdAsync(int id)

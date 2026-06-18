@@ -1,6 +1,8 @@
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
+using Cookie.Domain.Pagination;
 using Cookie.Infra.Data.Context;
+using Cookie.Infra.Data.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cookie.Infra.Data.Repositories;
@@ -12,9 +14,11 @@ public class ProductRepository(ApplicationDbContext context) : IProductRepositor
         return await context.Product.FindAsync(id);
     }
 
-    public async Task<List<Product>> GetAllAsync()
+    public async Task<PagedList<Product>> GetAllAsync(int pageNumber, int pageSize)
     {
-        return await context.Product.ToListAsync();
+        var query = context.Product.AsQueryable().AsNoTracking();
+
+        return await PaginationHelper.CreateAsync(query, pageNumber, pageSize);
     }
 
     public async Task<Product> AddAsync(Product product)

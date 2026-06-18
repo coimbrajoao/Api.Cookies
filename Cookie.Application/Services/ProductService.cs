@@ -3,6 +3,7 @@ using Cookie.Application.Exceptions;
 using Cookie.Application.Interfaces;
 using Cookie.Application.Mapper;
 using Cookie.Domain.Interfaces;
+using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
@@ -20,15 +21,15 @@ public class ProductService(IProductRepository productRepository) : IProductServ
         return productGet;
     }
 
-    public async Task<List<ProductGetDto>> GetAllAsync()
+    public async Task<PagedList<ProductGetDto>> GetAllAsync(int pageNumber, int pageSize)
     {
-        var list  = await productRepository.GetAllAsync();
-
-        if (list == null)
-        {
-            throw new NotFoundException("Nenhum produto foi encontrado");
-        }
-        return list.Select(ProductMapper.MapToProductGetDto).ToList();
+        var list  = await productRepository.GetAllAsync(pageNumber,pageSize);
+        
+        var productDto = list
+            .Select(ProductMapper.MapToProductGetDto)
+            .ToList();
+        
+        return new PagedList<ProductGetDto>(productDto, list.CurrentPage, list.PageSize,  list.TotalCount);
     }
 
     public async Task<ProductGetDto> AddAsync(ProductRequestDto productGetDto)
