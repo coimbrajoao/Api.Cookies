@@ -49,7 +49,7 @@ public class Product
     {
         if (string.IsNullOrWhiteSpace(description))
         {
-           throw new ArgumentException("Description invalido");
+           throw new ArgumentException("Descrição invalida");
         }
         
         if(description == Description)
@@ -62,7 +62,7 @@ public class Product
     {
         if (string.IsNullOrWhiteSpace(flavor))
         {
-            throw new ArgumentException("Flavor invalido");
+            throw new ArgumentException("Sabor invalido");
         }
         
         if (flavor == Flavor) 

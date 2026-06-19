@@ -48,13 +48,13 @@ public class ProductService(IProductRepository productRepository) : IProductServ
             throw new NotFoundException("Produto não foi encontrado");
         }
 
-        if (!string.IsNullOrWhiteSpace(productUpdateDto.Name))
+        if (productUpdateDto.Name != null)
            productUpdate.UpdateName(productUpdateDto.Name);
 
-        if (!string.IsNullOrWhiteSpace(productUpdateDto.Description))
+        if (productUpdateDto.Description != null)
             productUpdate.UpdateDescription(productUpdateDto.Description);
         
-        if (!string.IsNullOrWhiteSpace(productUpdateDto.Flavor))
+        if (productUpdateDto.Flavor != null)
             productUpdate.UpdateFlavor(productUpdateDto.Flavor);
         
         
