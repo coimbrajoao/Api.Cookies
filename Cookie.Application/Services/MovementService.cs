@@ -97,12 +97,9 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
        {
            stock.IncreaseStock(movement.Quantity);
        }
-
-
-       var reverse = movement.CreateReversal();
        
-       await movementRepository.AddMovementAsync(reverse);
-      await stockRepository.UpdateAsync(stock);
+       await movementRepository.AddMovementAsync(movement.CreateReversal());
+       await stockRepository.UpdateAsync(stock);
        
        return MovementMapper.MapMovementResponse(movement);
     }

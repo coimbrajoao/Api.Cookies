@@ -40,7 +40,7 @@ public class MovementController(IMovementService movementService) : Controller
     public async Task<ActionResult> DeleteMovementAsync(int id)
     {
         var deleted = await movementService.DeleteMovementAsync(id);
-        return deleted ? Ok() : BadRequest();
+        return deleted ? Ok("Movimento deletado com sucesso.") : BadRequest("Erro ao deletar o movimento.");
     }
 
     [HttpPost("{id}/Revert")]

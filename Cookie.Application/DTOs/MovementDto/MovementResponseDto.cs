@@ -13,4 +13,6 @@ public class MovementResponseDto
     public MovementType TypeMovement { get; set; }
     
     public int StockId { get; set; }
+    
+    public int? IdMaster { get; set; }
 }

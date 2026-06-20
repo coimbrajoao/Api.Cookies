@@ -18,7 +18,8 @@ public static class MovementMapper
             CreatedAt = movement.CreatedAt,
             StockId =  movement.StockId,
             TypeMovement = movement.TypeMovement,
-            Quantity = movement.Quantity
+            Quantity = movement.Quantity,
+            IdMaster = movement.IdMaster,
         };
     }
 }
