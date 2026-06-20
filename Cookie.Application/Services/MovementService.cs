@@ -103,11 +103,5 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
        
        return MovementMapper.MapMovementResponse(movement);
     }
-
-    public async Task<bool> DeleteMovementAsync(int id)
-    {
-        var deleted = await movementRepository.DeleteMovementAsync(id);
-
-        return deleted;
-    }
+    
 }

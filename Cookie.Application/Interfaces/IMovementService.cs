@@ -10,6 +10,5 @@ public interface IMovementService
     Task<MovementResponseDto> GetMovementAsync(int id);
     Task<MovementResponseDto> AddMovementAsync(MovementRequestDto movement);
     Task<MovementResponseDto> RevertMovementAsync(int id);
-    Task<bool> DeleteMovementAsync(int id);
     
 }
