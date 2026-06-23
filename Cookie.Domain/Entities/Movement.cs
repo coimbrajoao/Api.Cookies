@@ -21,13 +21,18 @@ public class Movement
     {
         if (quantity <= 0)
             throw new ArgumentException("O valor deve ser maior que zero");
+        
+        if (stockId <= 0)
+            throw new ArgumentException("Um estoque deve ser informado");
+        
         TypeMovement = type;
         Quantity = quantity;
         CreatedAt = DateTime.UtcNow;
         StockId = stockId;
         IdMaster =  idMaster;
     }
-
+    
+    
     public Movement CreateReversal()
     {
         if (this.IdMaster.HasValue)

@@ -5,6 +5,8 @@ using Cookie.Application.Interfaces;
 using Cookie.Application.Services;
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
+using Cookie.Infra.Data.Helpers;
+using MockQueryable.Moq;
 using Moq;
 
 namespace Cookie.Test.Services;
@@ -25,7 +27,7 @@ public class ProductServiceTest
         _productService = new ProductService(_productRepositoryMock.Object);
     }
 
-    public class Constructor : ProductServiceTest
+    public class AddProduct : ProductServiceTest
     {
         [Fact]
         public async void CreateProduct_ShouldCreateProduct_WhenDataIsValid()
@@ -291,5 +293,28 @@ public class ProductServiceTest
             Assert.Equal("Produto não foi encontrado", message.Message);
         }
     }
-    
+
+    public class GetAllProduct : ProductServiceTest
+    {
+        [Fact]
+        public async void should_ReturnAllProducts()
+        {
+            //arrange
+            var listProduct = new List<Product>
+            {
+                productTeste
+            };
+
+            var mock = listProduct.BuildMock();
+
+            _productRepositoryMock.Setup(repo => repo.GetAllAsync(1, 10)).ReturnsAsync(await PaginationHelper.CreateAsync(mock, 1,10));
+            //act
+
+            var result = await _productService.GetAllAsync(1, 10);
+            
+            Assert.NotEmpty(result);
+            Assert.Equal(listProduct.Count, result.Count);
+
+        }
+    }
 }
