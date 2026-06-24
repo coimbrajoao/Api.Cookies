@@ -15,6 +15,8 @@ public class MovementServiceTest
 {
     private readonly Mock<IStockRepository> _stockRepositoryMock;
     private readonly Mock<IMovementRepository> _movementRepositoryMock;
+    private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+    
     private readonly IMovementService _movementService;
     private readonly Faker _faker;
 
@@ -27,7 +29,7 @@ public class MovementServiceTest
         _faker = new Faker();
         _stockRepositoryMock = new Mock<IStockRepository>();
         _movementRepositoryMock = new Mock<IMovementRepository>();
-        _movementService = new MovementService( _movementRepositoryMock.Object,_stockRepositoryMock.Object);
+        _movementService = new MovementService( _movementRepositoryMock.Object,_stockRepositoryMock.Object, _unitOfWorkMock.Object);
         
     }
     

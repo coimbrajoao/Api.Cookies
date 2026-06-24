@@ -25,7 +25,6 @@ public class MovementRepository(ApplicationDbContext context) : IMovementReposit
     public async Task<Movement> AddMovementAsync(Movement movement)
     {
         context.Movement.Add(movement);
-        await context.SaveChangesAsync();
         return movement;
     }
     
@@ -33,7 +32,6 @@ public class MovementRepository(ApplicationDbContext context) : IMovementReposit
     {
         var movement = await context.Movement.FindAsync(id);
         if (movement != null) context.Movement.Remove(movement);
-        await  context.SaveChangesAsync();
         return true;
         
     }

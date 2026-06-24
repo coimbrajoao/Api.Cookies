@@ -14,6 +14,7 @@ public class StockServiceTest
 {
     private readonly Mock<IStockRepository> _stockRepositoryMock;
     private readonly Mock<IProductRepository> _productRepositoryMock;
+    private readonly Mock<IUnitOfWork> _unitOfWorkMock;
     private readonly IStockService _stockService;
     private readonly Faker _faker;
 
@@ -21,7 +22,7 @@ public class StockServiceTest
     {
         _stockRepositoryMock = new Mock<IStockRepository>();
         _productRepositoryMock = new Mock<IProductRepository>();
-        _stockService = new StockService(_stockRepositoryMock.Object, _productRepositoryMock.Object);
+        _stockService = new StockService(_stockRepositoryMock.Object, _productRepositoryMock.Object,_unitOfWorkMock.Object);
         _faker = new Faker();
     }
 

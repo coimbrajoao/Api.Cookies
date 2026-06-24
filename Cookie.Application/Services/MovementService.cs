@@ -8,7 +8,7 @@ using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
-public class MovementService(IMovementRepository movementRepository, IStockRepository stockRepository) : IMovementService
+public class MovementService(IMovementRepository movementRepository, IStockRepository stockRepository, IUnitOfWork uow) : IMovementService
 {
     public async Task<PagedList<MovementResponseDto>> GetMovementsAsync(int pageNumber, int pageSize)
     {
@@ -67,6 +67,7 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
         
         await stockRepository.UpdateAsync(stock);
         await movementRepository.AddMovementAsync(movement);
+        await uow.Save();
         
         return MovementMapper.MapMovementResponse(movement);
     }
@@ -104,11 +105,13 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
        {
            stock.IncreaseStock(movement.Quantity);
        }
-       
-       await movementRepository.AddMovementAsync(movement.CreateReversal());
+
+       var reversal = movement.CreateReversal();
+       await movementRepository.AddMovementAsync(reversal);
        await stockRepository.UpdateAsync(stock);
+        await uow.Save();
        
-       return MovementMapper.MapMovementResponse(movement);
+       return MovementMapper.MapMovementResponse(reversal);
     }
     
 }

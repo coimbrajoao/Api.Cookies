@@ -7,7 +7,7 @@ using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
-public class ProductService(IProductRepository productRepository) : IProductService
+public class ProductService(IProductRepository productRepository, IUnitOfWork uwo) : IProductService
 {
     public async Task<ProductGetDto> GetByIdAsync(int id)
     {
@@ -36,6 +36,7 @@ public class ProductService(IProductRepository productRepository) : IProductServ
     {
         var productPost = ProductMapper.MapToProduct(productGetDto);
         await productRepository.AddAsync(productPost);
+        await uwo.Save();
         var productGet = ProductMapper.MapToProductGetDto(productPost);
         return productGet;
     }
@@ -64,13 +65,14 @@ public class ProductService(IProductRepository productRepository) : IProductServ
         }
         
         await productRepository.UpdateAsync(productUpdate);
-        
+        await uwo.Save();
         return ProductMapper.MapToProductGetDto(productUpdate);
     }
 
     public async Task<bool> DeleteAsync(int id)
     {
         var product = await productRepository.DeleteAsync(id);
+        await uwo.Save();
         return product;
     }
 }

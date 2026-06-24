@@ -22,7 +22,8 @@ public static class DependecyInjection
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IStockRepository, StockRepository>();
         services.AddScoped<IMovementRepository, MovementRepository>();
-
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IStockService, StockService>();
         services.AddScoped<IMovementService, MovementService>();

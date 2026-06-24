@@ -8,7 +8,7 @@ using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
-public class StockService(IStockRepository stockRepository, IProductRepository productRepository) : IStockService
+public class StockService(IStockRepository stockRepository, IProductRepository productRepository, IUnitOfWork uow) : IStockService
 
 {
     public async Task<PagedList<StockResponseDto>> GetStocks(int pageNumber, int pageSize)
@@ -35,6 +35,8 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
         }
         stock.SetUnitPrice(product.Price);
         await stockRepository.AddAsync(stock);
+        await uow.Save();
+
         return StockMapper.MapToStockResponse(stock);
     }
 
@@ -56,12 +58,14 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
         }
         
         await stockRepository.UpdateAsync(stock);
+        await uow.Save();
         return StockMapper.MapToStockResponse(stock);
     }
 
     public async Task<bool> DeleteStock(int stockId)
     {
         var stock = await stockRepository.DeleteAsync(stockId);
+        await uow.Save();
         return stock;
     }
 }

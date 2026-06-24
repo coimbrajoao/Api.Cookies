@@ -24,14 +24,12 @@ public class ProductRepository(ApplicationDbContext context) : IProductRepositor
     public async Task<Product> AddAsync(Product product)
     {
         context.Product.Add(product);
-        await context.SaveChangesAsync();
         return product;
     }
 
     public async Task<Product> UpdateAsync(Product product)
     {
         context.Product.Update(product);
-        await context.SaveChangesAsync();
         return product;
     }
 
@@ -43,7 +41,6 @@ public class ProductRepository(ApplicationDbContext context) : IProductRepositor
            return false;
        }
        context.Product.Remove(product);
-       await context.SaveChangesAsync();
        return true;
     }
 }

@@ -14,6 +14,7 @@ namespace Cookie.Test.Services;
 public class ProductServiceTest
 {
     private readonly Mock<IProductRepository> _productRepositoryMock;
+    private readonly Mock<IUnitOfWork> _unitOfWorkMock;
     private readonly IProductService _productService;
     private readonly Faker _faker;
 
@@ -24,7 +25,7 @@ public class ProductServiceTest
     {
         _faker = new Faker();
         _productRepositoryMock = new Mock<IProductRepository>();
-        _productService = new ProductService(_productRepositoryMock.Object);
+        _productService = new ProductService(_productRepositoryMock.Object, _unitOfWorkMock.Object);
     }
 
     public class AddProduct : ProductServiceTest

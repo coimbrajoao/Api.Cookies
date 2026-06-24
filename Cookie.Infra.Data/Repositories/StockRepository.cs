@@ -13,14 +13,12 @@ public class StockRepository(ApplicationDbContext context) : IStockRepository
     public async Task<Stock> AddAsync(Stock stock)
     {
         context.Stock.Add(stock);
-        await context.SaveChangesAsync();
         return stock;
     }
 
     public async Task<Stock?> UpdateAsync(Stock stock)
     {
         context.Stock.Update(stock);
-        await context.SaveChangesAsync();
         return stock;
     }
 
@@ -29,7 +27,6 @@ public class StockRepository(ApplicationDbContext context) : IStockRepository
         var  stock = await context.Stock.FindAsync(id);
         if (stock == null) return false;
         context.Stock.Remove(stock);
-        await context.SaveChangesAsync();
         return true;
 
     }
