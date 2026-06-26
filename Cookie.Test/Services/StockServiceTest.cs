@@ -22,6 +22,8 @@ public class StockServiceTest
     {
         _stockRepositoryMock = new Mock<IStockRepository>();
         _productRepositoryMock = new Mock<IProductRepository>();
+        _unitOfWorkMock = new Mock<IUnitOfWork>();
+        _unitOfWorkMock.Setup(r => r.Save()).ReturnsAsync(true);
         _stockService = new StockService(_stockRepositoryMock.Object, _productRepositoryMock.Object,_unitOfWorkMock.Object);
         _faker = new Faker();
     }

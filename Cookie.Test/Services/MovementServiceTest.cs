@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.JavaScript;
 using Bogus;
 using Cookie.Application.DTOs.MovementDto;
 using Cookie.Application.Exceptions;
@@ -29,8 +30,9 @@ public class MovementServiceTest
         _faker = new Faker();
         _stockRepositoryMock = new Mock<IStockRepository>();
         _movementRepositoryMock = new Mock<IMovementRepository>();
+        _unitOfWorkMock = new Mock<IUnitOfWork>();
+        _unitOfWorkMock.Setup(r => r.Save()).ReturnsAsync(true);
         _movementService = new MovementService( _movementRepositoryMock.Object,_stockRepositoryMock.Object, _unitOfWorkMock.Object);
-        
     }
     
     public class AddMovement :  MovementServiceTest
@@ -112,6 +114,7 @@ public class MovementServiceTest
             Assert.Equal("Um estoque deve ser informado", message.Message);
         }
         
-        
     }
+    
+    
 }

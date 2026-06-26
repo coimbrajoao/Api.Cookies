@@ -50,6 +50,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f030788a_002D9b5b_002D4b14_002D9ee8_002D3692104d7e68/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateMovement_WithInvalidStockId_ShouldThrowException" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Services.MovementServiceTest+AddMovement.CreateMovement_WithInvalidStockId_ShouldThrowException&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Services.ProductServiceTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Services.MovementServiceTest+AddMovement&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::8A03E9E5-DB2B-4998-A853-D3F9DA3EC073::net10.0::Cookie.Test.Services.MovementServiceTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f82bcb58_002Dc9ce_002D47b6_002D99a3_002Dbc1d1b3d4310/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateMovement_WithValidEntryData_ShouldAddMovement #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

@@ -25,6 +25,8 @@ public class ProductServiceTest
     {
         _faker = new Faker();
         _productRepositoryMock = new Mock<IProductRepository>();
+        _unitOfWorkMock = new Mock<IUnitOfWork>();
+        _unitOfWorkMock.Setup(r => r.Save()).ReturnsAsync(true);
         _productService = new ProductService(_productRepositoryMock.Object, _unitOfWorkMock.Object);
     }
 
