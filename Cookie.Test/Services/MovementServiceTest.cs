@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices.JavaScript;
 using Bogus;
+using Castle.Components.DictionaryAdapter.Xml;
 using Cookie.Application.DTOs.MovementDto;
 using Cookie.Application.Exceptions;
 using Cookie.Application.Interfaces;
@@ -24,6 +25,7 @@ public class MovementServiceTest
     private Stock stockTest = new Stock(1 , 10);
 
     private Movement movementTest = new Movement(0, 10, 1);
+    private Movement movementRevertTest = new Movement(0, 10, 1, 1);
     
     public MovementServiceTest()
     {
@@ -115,6 +117,49 @@ public class MovementServiceTest
         }
         
     }
-    
-    
+
+    public class ReverserMovement : MovementServiceTest
+    {
+        [Fact]
+        public async void ReverserMovement_WithValidEntryData_ShouldReverserMovement()
+        {
+            //arrange 
+            _movementRepositoryMock.Setup(repo => repo.GetMovementByIdAsync(1)).ReturnsAsync(movementTest);
+            _stockRepositoryMock.Setup(repo => repo.GetByIdAsync(1)).ReturnsAsync(stockTest);
+            //act
+            var result = await _movementService.RevertMovementAsync(1);
+            
+            //assert
+            Assert.NotNull(result);
+            Assert.Equal(movementTest.Quantity, result.Quantity);
+            Assert.NotEqual(movementTest.TypeMovement, result.TypeMovement);
+            Assert.Equal(movementTest.Quantity, result.Quantity);
+        }
+
+        [Fact]
+        public async void ReverserMovmente_WhithInvalidMovementId_ShouldThrowException()
+        {
+            _movementRepositoryMock.Setup(repo => repo.GetMovementByIdAsync(1)).ReturnsAsync((Movement)null!);
+            
+            var result = await Assert.ThrowsAsync<NotFoundException>(() =>  _movementService.RevertMovementAsync(1));
+            
+            Assert.NotNull(result);
+            Assert.Equal("Nenhum movimento foi encontrado", result.Message);
+        }
+
+        [Fact]
+        public async void ReverseMovement_WhithQuantityIsSmallerThanZero_ShouldThrowException()
+        {
+            //arrange
+            Stock stock = new Stock(1 , 5);
+            Movement movement = new Movement(MovementType.Entry, 10, 1);
+            _movementRepositoryMock.Setup(repo => repo.GetMovementByIdAsync(1)).ReturnsAsync(movement);
+            _stockRepositoryMock.Setup(repo => repo.GetByIdAsync(1)).ReturnsAsync(stock);
+
+            var result = await Assert.ThrowsAsync<BadRequestException>(() => _movementService.RevertMovementAsync(1));
+            
+            Assert.NotNull(result);
+            Assert.Equal("Saldo insuficiente para estornar.", result.Message);
+        }
+    }
 }

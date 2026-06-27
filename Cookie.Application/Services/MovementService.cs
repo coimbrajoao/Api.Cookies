@@ -96,7 +96,7 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
        {
            if (stock.Quantity < movement.Quantity)
            {
-               throw new BadRequestException("Saldo insuficiente para estornar esta entrada.");
+               throw new BadRequestException("Saldo insuficiente para estornar.");
            }
            
            stock.DecreaseStock(movement.Quantity);
