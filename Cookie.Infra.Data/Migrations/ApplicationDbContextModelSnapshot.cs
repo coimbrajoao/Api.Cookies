@@ -28,6 +28,9 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int?>("IdMaster")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -37,14 +40,11 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<int>("TypeMovement")
                         .HasColumnType("int");
 
-                    b.Property<int?>("idMaster")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("StockId");
+                    b.HasIndex("IdMaster");
 
-                    b.HasIndex("idMaster");
+                    b.HasIndex("StockId");
 
                     b.ToTable("Movement");
                 });
@@ -103,18 +103,55 @@ namespace Cookie.Infra.Data.Migrations
                     b.ToTable("Stock");
                 });
 
+            modelBuilder.Entity("Cookie.Domain.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("varbinary(128)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("varbinary(128)");
+
+                    b.Property<int>("UserRole")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("Cookie.Domain.Entities.Movement", b =>
                 {
+                    b.HasOne("Cookie.Domain.Entities.Movement", "ParentMovement")
+                        .WithMany()
+                        .HasForeignKey("IdMaster")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.HasOne("Cookie.Domain.Entities.Stock", "Stock")
                         .WithMany()
                         .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.HasOne("Cookie.Domain.Entities.Movement", "ParentMovement")
-                        .WithMany()
-                        .HasForeignKey("idMaster")
-                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("ParentMovement");
 

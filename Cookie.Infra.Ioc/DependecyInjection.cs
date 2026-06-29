@@ -16,13 +16,14 @@ public static class DependecyInjection
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseMySQL(configuration.GetConnectionString("DefaultConnection") ?? "",
-                b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly));
         });
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IStockRepository, StockRepository>();
         services.AddScoped<IMovementRepository, MovementRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IUserRepository, UserRepository>();
         
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IStockService, StockService>();
