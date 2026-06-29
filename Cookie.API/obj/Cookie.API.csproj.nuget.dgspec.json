@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj": {}
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Api\\Cookie.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj": {
+    "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Api\\Cookie.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj",
+        "projectUniqueName": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Api\\Cookie.API.csproj",
         "projectName": "Cookie.API",
-        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj",
+        "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Api\\Cookie.API.csproj",
         "packagesPath": "C:\\Users\\coimb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\obj\\",
+        "outputPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\coimb\\AppData\\Roaming\\NuGet\\NuGet.Config"

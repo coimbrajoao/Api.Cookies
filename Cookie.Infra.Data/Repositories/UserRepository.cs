@@ -1,27 +1,32 @@
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
+using Cookie.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cookie.Infra.Data.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository(ApplicationDbContext context) : IUserRepository
 {
-    public Task<User> AddUser(User user)
+
+    public async Task<User> AddUser(User user)
     {
-        throw new NotImplementedException();
+        await context.User.AddAsync(user);
+        return user;
     }
 
-    public Task<User> UpdateUser(User user)
+    public async Task<User> UpdateUser(User user)
     {
-        throw new NotImplementedException();
+        context.User.Update(user);
+        return user;
     }
 
-    public Task<User> GetUserByEmail(string email)
+    public async Task<User?> GetUserByEmail(string email)
     {
-        throw new NotImplementedException();
+        return await context.User.FirstOrDefaultAsync(u => u.Email == email && u.Active != 0);
     }
 
-    public Task<User> GetUserById(int id)
+    public async Task<User?> GetUserById(int id)
     {
-        throw new NotImplementedException();
+        return await context.User.FirstOrDefaultAsync(u => u.Id == id);
     }
 }

@@ -10,6 +10,7 @@ public class User
     public byte[] PasswordSalt { get; private set; }
     public string Email { get; private set; }
     
+    public int Active {get; private set;}
     public DateTime CreatedAt { get; private set; } =  DateTime.Now;
     
     public Permission UserRole { get; private set; }
@@ -21,5 +22,11 @@ public class User
         PasswordHash = passwordHash;
         PasswordSalt = passwordSalt;
         UserRole = userRole;
+        Active = 1;
+    }
+    
+    public void AlterActive(int active)
+    {
+        Active = active;
     }
 }
