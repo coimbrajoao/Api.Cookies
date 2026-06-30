@@ -1,13 +1,14 @@
 using Cookie.Application.DTOs.User;
 using Cookie.Domain.Entities;
+using Cookie.Domain.Enum;
 
 namespace Cookie.Application.Mapper;
 
 public static class UserMapper
 {
-    public static User MapFromDto(UserRequestDto userRequestDto, byte[] senhaHash)
+    public static User MapFromDto(UserRequestDto userRequestDto, byte[] passwordHash, byte[] passwordSalt, Permission role)
     {
-      return   new User(userRequestDto.Username, userRequestDto.UserRole, userRequestDto.Email, senhaHash, senhaHash);
+      return new User(userRequestDto.Username, role, userRequestDto.Email, passwordHash, passwordSalt);
     }
 
     public static UserResponseDto MapToDto(User user)
@@ -16,7 +17,7 @@ public static class UserMapper
         {
             UserId = user.Id,
             Email = user.Email,
-            UserName = user.Username,
+            UserName = user.UserName,
             UserRole = user.UserRole,
         };
     }

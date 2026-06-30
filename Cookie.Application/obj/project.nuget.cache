@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1jO6CEHn2I4=",
+  "dgSpecHash": "gblfI06Eaa4=",
   "success": true,
   "projectFilePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\coimb\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.1\\microsoft.extensions.configuration.abstractions.10.0.1.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.1\\microsoft.extensions.primitives.10.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

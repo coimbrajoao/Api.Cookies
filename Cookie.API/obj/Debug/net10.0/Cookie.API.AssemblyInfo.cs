@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("49d27d61-aff9-48e6-9f22-e8de59e40c84")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cookie.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a62214c19d4394e2c633d027531407ec9d5d7f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9cdedbb38f24ced2a0bc20e985b91a1e1427e6d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cookie.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cookie.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

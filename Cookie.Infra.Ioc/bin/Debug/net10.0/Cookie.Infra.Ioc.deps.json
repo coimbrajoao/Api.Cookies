@@ -330,7 +330,8 @@
       },
       "Cookie.Application/1.0.0": {
         "dependencies": {
-          "Cookie.Domain": "1.0.0"
+          "Cookie.Domain": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.1"
         },
         "runtime": {
           "Cookie.Application.dll": {

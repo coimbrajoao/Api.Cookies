@@ -13,7 +13,4 @@ public class UserRequestDto
     
     [Required]
     public string Email { get; set; }
-    
-    [Required]
-    public Permission UserRole { get; set; }
 }
