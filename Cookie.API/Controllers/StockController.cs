@@ -2,6 +2,8 @@ using Cookie.API.Extensions;
 using Cookie.API.Models;
 using Cookie.Application.DTOs.StockDto;
 using Cookie.Application.Interfaces;
+using Cookie.Domain.Enum;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookie.API.Controllers;
@@ -11,6 +13,8 @@ namespace Cookie.API.Controllers;
 public class StockController(IStockService stockService) : Controller
 {
     [HttpPost]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> CreateStock(StockRequestDto stockRequestDto)
     {
         var CreatedStock = await stockService.CreateStock(stockRequestDto);
@@ -23,6 +27,7 @@ public class StockController(IStockService stockService) : Controller
     }
 
     [HttpGet]
+    [Authorize(Roles = "StockClerk,Admin")]
     public async Task<ActionResult> GetAllStock([FromQuery] PaginationParams paginationParams)
     {
         var allStock = await stockService.GetStocks(paginationParams.PageNumber, paginationParams.PageSize);
@@ -33,6 +38,8 @@ public class StockController(IStockService stockService) : Controller
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> GetStockById(int id)
     {
         var stockById = await stockService.GetStockById(id);
@@ -41,6 +48,7 @@ public class StockController(IStockService stockService) : Controller
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> UpdateStock(int id, StockUpdateDto stockUpdatetDto)
     {
         var updateStock = await stockService.UpdateStock(id,stockUpdatetDto);
@@ -49,6 +57,7 @@ public class StockController(IStockService stockService) : Controller
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> DeleteStock(int id)
     {
         var stock = await stockService.DeleteStock(id);

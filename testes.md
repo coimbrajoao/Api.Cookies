@@ -1,86 +1,75 @@
-# Prompt para geração de testes automatizados
+# Prompt para geração de README.md
 
-Atue como um desenvolvedor sênior especialista em testes automatizados com C#, xUnit e boas práticas de arquitetura.
+Atue como um desenvolvedor Full-Stack sênior e especialista em documentação técnica.
 
-Seu objetivo é gerar testes unitários claros, organizados e profissionais para o projeto informado.
+Gere um arquivo `README.md` profissional, moderno e limpo para o meu projeto.
 
 ## Contexto do Projeto
 
-* Projeto: Cookie.API
-* Linguagem: C#
-* Framework: ASP.NET Core
-* ORM: Entity Framework Core
-* Banco: MySQL
-* Framework de testes: xUnit
-* Mocking: Moq
-* Dados fake: Bogus
+* **Nome:** Cookie.API
+* **Objetivo:**
+  Sistema de gerenciamento de estoque responsável por controlar:
 
-## Objetivo dos Testes
+  * criação de produtos
+  * gerenciamento de estoque
+  * entrada e saída de itens
+  * reversão de movimentações
 
-Os testes devem validar:
+## Stack Utilizada
 
-* regras de negócio
-* comportamento esperado dos serviços
-* validações
-* exceções
-* manipulação correta do banco/repositório
-* fluxos de entrada e saída de estoque
+* C#
+* ASP.NET Core
+* Entity Framework Core
+* MySQL
+* Bogus
+* xUnit
 
-## Regras para geração dos testes
+## Funcionalidades Principais
 
-* Utilize xUnit
-* Utilize Moq para dependências
-* Utilize padrão Arrange / Act / Assert
-* Utilize nomes de testes descritivos
-* Mantenha os testes independentes
-* Não utilize código excessivamente complexo
-* Foque em legibilidade e manutenção
+### Produtos
 
-## Estrutura Esperada
+* Cadastro de produtos
+* Visualização de produto por ID
+* Listagem de todos os produtos
+* Edição de produtos
+* Exclusão de produtos
 
-Cada teste deve conter:
+### Estoque
 
-1. Arrange
+* Cadastro de estoque
+* Visualização de estoque
+* Edição de estoque
+* Exclusão de estoque
 
-   * criação de mocks
-   * criação de entidades fake
-   * configuração do cenário
+### Movimentações
 
-2. Act
+* Entrada de estoque
+* Saída de estoque
+* Reversão de movimentações
 
-   * execução do método testado
+## User
+* Cadastro de usuario
+* Criptografia de senha
+* Auditoria e atutenticação
 
-3. Assert
+## Estrutura Esperada do README
 
-   * validação do resultado esperado
+O README deve conter:
 
-## Padrão de Nome dos Testes
+1. Título do projeto com uma breve descrição impactante
+2. Tecnologias utilizadas (preferencialmente com badges)
+3. Funcionalidades principais
+4. Exemplos de entradas e saídas esperadas dos endpoints
+5. Guia de execução local do backend
+6. Como executar os testes
+7. Estrutura básica de pastas do projeto
+8. Arquitetura ou design pattern utilizado
+9. Exemplos visuais organizados em Markdown limpo
 
-Utilize o padrão:
+## Requisitos de Escrita
 
-```csharp
-Metodo_Cenario_ResultadoEsperado
-```
-
-Exemplo:
-
-```csharp
-CreateProduct_WhenNameIsValid_ShouldCreateProduct
-```
-
-## O que deve ser testado
-
-### Stock
-
-* criação de produto válido
-* tentativa de criação inválida
-* atualização de produto
-
-## Requisitos adicionais
-
-* Gere código completo
-* Inclua using necessários
-* Utilize boas práticas de Clean Code
-* Evite comentários desnecessários
-* Retorne apenas código funcional
-* Explique rapidamente a finalidade de cada teste quando necessário
+* Utilize Markdown compatível com GitHub
+* Mantenha o conteúdo técnico e direto
+* Evite textos excessivamente longos
+* Foque na experiência do desenvolvedor que irá ler o projeto
+* Utilize uma aparência moderna e profissional

@@ -2,6 +2,8 @@ using Cookie.API.Extensions;
 using Cookie.API.Models;
 using Cookie.Application.DTOs.ProductDto;
 using Cookie.Application.Interfaces;
+using Cookie.Domain.Enum;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookie.API.Controllers;
@@ -11,6 +13,8 @@ namespace Cookie.API.Controllers;
 public class ProductController(IProductService productService) : Controller
 {
     [HttpPost]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> CreateProduct(ProductRequestDto productRequestDto)
     {
         var createdProduct = await productService.AddAsync(productRequestDto);
@@ -19,6 +23,8 @@ public class ProductController(IProductService productService) : Controller
 
     [HttpPut]
     [Route("{id:int}")]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> UpdateProduct(int id,ProductUpdateDto productUpdateDto)
     {
         var updateProduct = await productService.UpdateAsync(id,productUpdateDto);
@@ -27,6 +33,8 @@ public class ProductController(IProductService productService) : Controller
 
     [HttpGet]
     [Route("{id:int}")]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> GetProductById(int id)
     {
         var product = await productService.GetByIdAsync(id);
@@ -35,6 +43,8 @@ public class ProductController(IProductService productService) : Controller
 
     [HttpDelete]
     [Route("{id:int}")]
+    [Authorize(Roles = "Admin")]
+    
     public async Task<ActionResult> DeleteProductById(int id)
     {
         var product = await productService.DeleteAsync(id);
@@ -42,6 +52,7 @@ public class ProductController(IProductService productService) : Controller
     }
 
     [HttpGet]
+    [Authorize(Roles = "StockClerk,Admin")]
     public async Task<ActionResult> GetProductsAsync([FromQuery]PaginationParams paginationParams)
     {
         var products = await productService.GetAllAsync(paginationParams.PageNumber, paginationParams.PageSize);

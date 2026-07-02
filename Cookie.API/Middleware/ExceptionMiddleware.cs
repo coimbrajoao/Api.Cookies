@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Cookie.API.Errors;
 using Cookie.Application.Exceptions;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Cookie.API.Middleware;
 
@@ -31,7 +32,8 @@ public class ExceptionMiddleware
             {
                 NotFoundException => StatusCodes.Status404NotFound,
                 BadRequestException => StatusCodes.Status400BadRequest,
-                UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
+                UnauthorizedAccessException => StatusCodes.Status401Unauthorized, 
+                EmailException => StatusCodes.Status409Conflict,
                 _ => StatusCodes.Status500InternalServerError
             };
             

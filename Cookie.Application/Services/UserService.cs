@@ -5,6 +5,7 @@ using Cookie.Application.Mapper;
 using Cookie.Domain.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
+using Cookie.API.Errors;
 using Cookie.Domain.Enum;
 using Microsoft.Extensions.Configuration;
 
@@ -15,9 +16,18 @@ public class UserService(IUserRepository userRepository, IUnitOfWork uow) : IUse
 
     public async Task<UserResponseDto> AddUserAsync(UserRequestDto userRequestDto)
     {
-        using var hmc = new HMACSHA512();
-        byte[] passwordHash = hmc.ComputeHash(Encoding.UTF8.GetBytes(userRequestDto.Password));
-        byte[] passwordSalt = hmc.Key;
+        
+        var emailExiste = await userRepository.GetUserByEmail(userRequestDto.Email);
+
+
+        if (emailExiste != null)
+        {
+            throw new EmailException("Email fornecido ja cadastrado no sistema");
+        }
+        
+        using var hmac = new HMACSHA512();
+        byte[] passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userRequestDto.Password));
+        byte[] passwordSalt = hmac.Key;
 
         var userExist = await userRepository.ExistsAsync();
         

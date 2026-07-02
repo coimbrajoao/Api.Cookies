@@ -2,6 +2,7 @@ using Cookie.API.Extensions;
 using Cookie.API.Models;
 using Cookie.Application.DTOs.MovementDto;
 using Cookie.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookie.API.Controllers;
@@ -12,6 +13,8 @@ public class MovementController(IMovementService movementService) : Controller
 {
 
     [HttpPost]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> AddMovementAsync(MovementRequestDto movementRequestDto)
     {
         var movement = await movementService.AddMovementAsync(movementRequestDto);
@@ -19,6 +22,8 @@ public class MovementController(IMovementService movementService) : Controller
     }
 
     [HttpGet]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> GetMovementsAsync([FromQuery] PaginationParams paginationParams)
     {
         var movements = await movementService.GetMovementsAsync(paginationParams.PageNumber, paginationParams.PageSize);
@@ -30,6 +35,8 @@ public class MovementController(IMovementService movementService) : Controller
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> GetMovementAsync(int id)
     {
         var movement = await movementService.GetMovementAsync(id);
@@ -37,6 +44,8 @@ public class MovementController(IMovementService movementService) : Controller
     }
 
     [HttpPost("{id}/Revert")]
+    [Authorize(Roles = "StockClerk,Admin")]
+    
     public async Task<ActionResult> RevertMovementAsync(int id)
     {
         var movementReverse = await  movementService.RevertMovementAsync(id);

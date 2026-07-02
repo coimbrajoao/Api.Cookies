@@ -23,12 +23,12 @@ builder.Services.AddSwaggerGen(options =>
 
     options.AddSecurityRequirement(options => new OpenApiSecurityRequirement
     {
-        [ new OpenApiSecuritySchemeReference("bearer", options)] = []
+        [ new OpenApiSecuritySchemeReference("Bearer", options)] = []
     });
     
 });
 
-builder.Services.AddOpenApi();
+//builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
@@ -42,6 +42,7 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

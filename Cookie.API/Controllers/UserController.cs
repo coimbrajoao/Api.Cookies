@@ -1,5 +1,7 @@
 using Cookie.Application.DTOs.User;
 using Cookie.Application.Interfaces;
+using Cookie.Domain.Enum;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cookie.API.Controllers;
@@ -10,6 +12,7 @@ public class UserController(IUserService userService) : Controller
 {
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> CreateUser(UserRequestDto request)
     {
         var response = await userService.AddUserAsync(request);
@@ -29,6 +32,7 @@ public class UserController(IUserService userService) : Controller
 
     [HttpGet]
     [Route("{Id:int}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> GetUserById(int Id)
     {
         var response = await userService.FindUserByIdAsync(Id);
@@ -39,6 +43,7 @@ public class UserController(IUserService userService) : Controller
 
     [HttpDelete]
     [Route("{Id:int}")]
+    [Authorize(Roles = nameof(Permission.Admin))]
     public async Task<ActionResult> DeleteUser(int Id)
     {
         var response = await userService.DeleteUserAsync(Id);
@@ -48,6 +53,7 @@ public class UserController(IUserService userService) : Controller
 
     [HttpPut]
     [Route("{Id:int}")]
+    [Authorize(Roles = nameof(Permission.Admin))]
     public async Task<ActionResult> UpdateUser(int Id, UserUpdateDto request)
     {
         var response = await userService.UpdateUserAsync(request, Id);
