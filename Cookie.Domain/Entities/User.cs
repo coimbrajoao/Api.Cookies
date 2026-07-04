@@ -56,4 +56,11 @@ public class User
     {
         UserRole = userRole;
     }
+    
+    public void AlterPassword(byte[]  passwordHash, byte[] passwordSalt)
+    {
+        
+        PasswordSalt = passwordSalt;
+        PasswordHash = passwordHash;
+    }
 }

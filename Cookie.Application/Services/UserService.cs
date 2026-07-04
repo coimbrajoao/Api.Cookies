@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Cookie.Application.Services;
 
-public class UserService(IUserRepository userRepository, IUnitOfWork uow) : IUserService
+public class UserService(IUserRepository userRepository, IUnitOfWork uow, IPasswordHasher hasher) : IUserService
 {
 
     public async Task<UserResponseDto> AddUserAsync(UserRequestDto userRequestDto)
@@ -25,10 +25,7 @@ public class UserService(IUserRepository userRepository, IUnitOfWork uow) : IUse
             throw new EmailException("Email fornecido ja cadastrado no sistema");
         }
         
-        using var hmac = new HMACSHA512();
-        byte[] passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userRequestDto.Password));
-        byte[] passwordSalt = hmac.Key;
-
+        var (passwordSalt, passwordHash) = await hasher.GeneatePasswordHash(userRequestDto.Password);
         var userExist = await userRepository.ExistsAsync();
         
         var role= !userExist ? Permission.Admin : Permission.StockClerk;
@@ -52,9 +49,14 @@ public class UserService(IUserRepository userRepository, IUnitOfWork uow) : IUse
         return user == null ? throw new NotFoundException("Usuario nao foi encontrado") : UserMapper.MapToDto(user);
     }
 
-    public async Task<UserResponseDto> UpdateUserAsync(UserUpdateDto userUpdateDto, int userId)
+    public async Task<UserResponseDto> UpdateUserAsync(UserUpdateDto userUpdateDto, int userId, int IdRequest)
     {
+        var userRequest = await userRepository.GetUserById(IdRequest);
+        
         var user  = await userRepository.GetUserById(userId);
+
+        if (userRequest.Id != userId && userRequest.UserRole != Permission.Admin)
+            throw new UnauthorizedAccessException("Não e possivel fazer a alteração contate o usuario administrador");
         
         if (user == null)
             throw new NotFoundException("Usuario nao foi encontrado");
@@ -64,7 +66,13 @@ public class UserService(IUserRepository userRepository, IUnitOfWork uow) : IUse
 
         if (userUpdateDto.UserName != null && userUpdateDto.UserName != user.UserName)
             user.AlterUserName(userUpdateDto.UserName);
-        
+
+        if (userUpdateDto.Password != null || string.IsNullOrEmpty(userUpdateDto.Password))
+        {
+            var (passwordSalt, passwordHash) = await hasher.GeneatePasswordHash(userUpdateDto.Password);
+            user.AlterPassword(passwordSalt, passwordHash);
+        }
+                    
         await userRepository.UpdateUser(user);
         await uow.Save();
         

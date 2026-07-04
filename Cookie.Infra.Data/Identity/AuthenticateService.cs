@@ -13,14 +13,14 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Cookie.Infra.Data.Identity;
 
-public class AuthenticateService(IConfiguration _configuration, ApplicationDbContext _context) : IAuthenticate
+public class AuthenticateService(IConfiguration _configuration, ApplicationDbContext _context, IPasswordHasher hasher) : IAuthenticate
 {
 
     public string GenerateToken(int userId, string email, Permission permission)
     {
         var claims = new[]
         {
-            new Claim("id", userId.ToString()),
+            new Claim("Id", userId.ToString()),
             new Claim(ClaimTypes.Email, email.ToLower()),
             new Claim("role", permission.ToString()),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -50,15 +50,6 @@ public class AuthenticateService(IConfiguration _configuration, ApplicationDbCon
         if(user == null || user.Active ==0)
             return false;
 
-
-        using var hmac = new HMACSHA512(user.PasswordSalt);
-        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-        
-        for (int i = 0; i < computedHash.Length; i++)
-        {
-            if(computedHash[i] != user.PasswordHash[i])
-                return false;
-        }
-        return true;
+        return await hasher.VerifyPasswordHash(password, user.PasswordSalt,user.PasswordHash);
     }
 }

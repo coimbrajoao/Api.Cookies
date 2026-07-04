@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Cookie.Application.DTOs.User;
 using Cookie.Application.Interfaces;
 using Cookie.Domain.Enum;
@@ -8,6 +9,7 @@ namespace Cookie.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class UserController(IUserService userService) : Controller
 {
 
@@ -53,10 +55,15 @@ public class UserController(IUserService userService) : Controller
 
     [HttpPut]
     [Route("{Id:int}")]
-    [Authorize(Roles = nameof(Permission.Admin))]
+    [Authorize(Roles = "Admin, StockClerk")]
     public async Task<ActionResult> UpdateUser(int Id, UserUpdateDto request)
     {
-        var response = await userService.UpdateUserAsync(request, Id);
+        var UserId =User.FindFirstValue("Id");
+        Console.WriteLine(UserId);  
+        if (UserId == null)
+            return Unauthorized(new {UserId = UserId});
+        
+        var response = await userService.UpdateUserAsync(request, Id, int.Parse(UserId));
         return Ok(response);
     }
 }

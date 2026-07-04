@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cookie.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
 public class LoginController(IUserService _userService, IAuthenticate _authenticate) : Controller
 {
 
@@ -20,6 +19,7 @@ public class LoginController(IUserService _userService, IAuthenticate _authentic
     }
 
     [HttpPost]
+    [Route("Login")]
     public async Task<ActionResult> Login(UserLoginDto request)
     {
         var user = await _authenticate.GetUserByEmail(request.Email);

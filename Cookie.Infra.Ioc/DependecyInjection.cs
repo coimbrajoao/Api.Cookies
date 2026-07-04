@@ -6,6 +6,7 @@ using Cookie.Domain.Interfaces;
 using Cookie.Infra.Data.Context;
 using Cookie.Infra.Data.Identity;
 using Cookie.Infra.Data.Repositories;
+using Cookie.Infra.Data.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -49,12 +50,14 @@ public static class DependecyInjection
         services.AddScoped<IMovementRepository, MovementRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IPasswordHasher, PasswordHash>();
         
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IStockService, StockService>();
         services.AddScoped<IMovementService, MovementService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAuthenticate, AuthenticateService>();
+        
         return services;
     }
 }
