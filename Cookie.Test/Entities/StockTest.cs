@@ -1,4 +1,5 @@
 using Cookie.Domain.Entities;
+using Cookie.Domain.Exceptions;
 using Xunit;
 
 namespace Cookie.Test.Entities;
@@ -24,10 +25,10 @@ public class StockTest
         }
 
         [Fact]
-        public void Constructor_WhenProductIdIsZero_ShouldThrowArgumentException()
+        public void Constructor_WhenProductIdIsZero_ShouldThrowDomainExceptions()
         {
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() => new Stock(0, ValidQuantity));
+            var exception = Assert.Throws<DomainExceptions>(() => new Stock(0, ValidQuantity));
             Assert.Equal("Um produto deve ser informado", exception.Message);
         }
     }
@@ -48,13 +49,13 @@ public class StockTest
         }
 
         [Fact]
-        public void SetUnitPrice_WhenValueIsNegative_ShouldThrowArgumentException()
+        public void SetUnitPrice_WhenValueIsNegative_ShouldThrowDomainExceptions()
         {
             // Arrange
             var stock = new Stock(ValidProductId, ValidQuantity);
 
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() => stock.SetUnitPrice(-1));
+            var exception = Assert.Throws<DomainExceptions>(() => stock.SetUnitPrice(-1));
             Assert.Equal("O valor unitario deve ser maior que zero", exception.Message);
         }
     }
@@ -76,13 +77,13 @@ public class StockTest
         }
 
         [Fact]
-        public void IncreaseStock_WhenQuantityIsNegative_ShouldThrowArgumentException()
+        public void IncreaseStock_WhenQuantityIsNegative_ShouldThrowDomainExceptions()
         {
             // Arrange
             var stock = new Stock(ValidProductId, ValidQuantity);
 
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() => stock.IncreaseStock(-1));
+            var exception = Assert.Throws<DomainExceptions>(() => stock.IncreaseStock(-1));
             Assert.Equal("A quantidade deve ser maior que zero", exception.Message);
         }
     }
@@ -104,37 +105,37 @@ public class StockTest
         }
 
         [Fact]
-        public void DecreaseStock_WhenStockIsZero_ShouldThrowArgumentException()
+        public void DecreaseStock_WhenStockIsZero_ShouldThrowDomainExceptions()
         {
             // Arrange
             var stock = new Stock(ValidProductId, 0);
 
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() => stock.DecreaseStock(5));
+            var exception = Assert.Throws<DomainExceptions>(() => stock.DecreaseStock(5));
             Assert.Equal("A quantidade do produto é igual a zero", exception.Message);
         }
 
         [Fact]
-        public void DecreaseStock_WhenDecrementIsGreaterThanAvailable_ShouldThrowArgumentException()
+        public void DecreaseStock_WhenDecrementIsGreaterThanAvailable_ShouldThrowDomainExceptions()
         {
             // Arrange
             var stock = new Stock(ValidProductId, ValidQuantity);
 
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() => stock.DecreaseStock(ValidQuantity + 1));
+            var exception = Assert.Throws<DomainExceptions>(() => stock.DecreaseStock(ValidQuantity + 1));
             Assert.Equal("O valor e maior que a quantidade disponivel", exception.Message);
         }
 
         [Theory]
         [InlineData(0)]
         [InlineData(-5)]
-        public void DecreaseStock_WhenQuantityIsZeroOrNegative_ShouldThrowArgumentException(int invalidDecrement)
+        public void DecreaseStock_WhenQuantityIsZeroOrNegative_ShouldThrowDomainExceptions(int invalidDecrement)
         {
             // Arrange
             var stock = new Stock(ValidProductId, ValidQuantity);
 
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() => stock.DecreaseStock(invalidDecrement));
+            var exception = Assert.Throws<DomainExceptions>(() => stock.DecreaseStock(invalidDecrement));
             Assert.Equal("A quantidade deve ser maior que zero", exception.Message);
         }
     }

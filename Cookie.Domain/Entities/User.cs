@@ -1,4 +1,5 @@
 using Cookie.Domain.Enum;
+using Cookie.Domain.Exceptions;
 
 namespace Cookie.Domain.Entities;
 
@@ -35,7 +36,7 @@ public class User
     {
         if (string.IsNullOrEmpty(UserNameUpdate))
         {
-            throw new ArgumentNullException("Usario invalido, por favor digite novamente");
+            throw new DomainExceptions("Usario invalido, por favor digite novamente");
         }
         
         this.UserName = UserNameUpdate;
@@ -45,7 +46,7 @@ public class User
     {
         if (string.IsNullOrEmpty(Email))
         {
-            throw new ArgumentNullException("Email invalido, por favor digite novamente");
+            throw new DomainExceptions("Email invalido, por favor digite novamente");
             
         }
         

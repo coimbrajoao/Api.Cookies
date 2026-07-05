@@ -8,6 +8,7 @@ using Cookie.Application.Mapper;
 using Cookie.Application.Services;
 using Cookie.Domain.Entities;
 using Cookie.Domain.Enum;
+using Cookie.Domain.Exceptions;
 using Cookie.Domain.Interfaces;
 using Moq;
 
@@ -75,7 +76,7 @@ public class MovementServiceTest
                 TypeMovement = MovementType.Exit
             };
             
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _movementService.AddMovementAsync(movementDto));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _movementService.AddMovementAsync(movementDto));
             
             Assert.NotNull(message);
             Assert.Equal("O valor deve ser maior que zero", message.Message);            
@@ -110,7 +111,7 @@ public class MovementServiceTest
             };
 
             
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _movementService.AddMovementAsync(movementDto));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _movementService.AddMovementAsync(movementDto));
 
             Assert.NotNull(message);
             Assert.Equal("Um estoque deve ser informado", message.Message);

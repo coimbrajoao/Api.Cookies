@@ -1,4 +1,5 @@
 using Cookie.Domain.Enum;
+using Cookie.Domain.Exceptions;
 
 namespace Cookie.Domain.Entities;
 
@@ -20,10 +21,10 @@ public class Movement
     public Movement(MovementType type, int quantity,  int stockId, int? idMaster =  null)
     {
         if (quantity <= 0)
-            throw new ArgumentException("O valor deve ser maior que zero");
+            throw new DomainExceptions("O valor deve ser maior que zero");
         
         if (stockId <= 0)
-            throw new ArgumentException("Um estoque deve ser informado");
+            throw new DomainExceptions("Um estoque deve ser informado");
         
         TypeMovement = type;
         Quantity = quantity;
@@ -37,7 +38,7 @@ public class Movement
     {
         if (this.IdMaster.HasValue)
         {
-            throw new ArgumentException("O movimento é uma reversão e não pode ser revertido novamente");
+            throw new DomainExceptions("O movimento é uma reversão e não pode ser revertido novamente");
         }
         var reversalType = this.TypeMovement == MovementType.Entry ? MovementType.Exit : MovementType.Entry;
         

@@ -1,3 +1,5 @@
+using Cookie.Domain.Exceptions;
+
 namespace Cookie.Domain.Entities;
 
 public class Product
@@ -21,7 +23,7 @@ public class Product
     public void SetPrice(decimal price)
     {
         if (price <= 0)
-            throw new ArgumentException("Preço deve ser maior que zero");
+            throw new DomainExceptions("Preço deve ser maior que zero");
 
         if (price == Price)
         {
@@ -36,7 +38,7 @@ public class Product
     {
         if (string.IsNullOrWhiteSpace(name))
         {
-            throw new ArgumentException("Nome invalido");
+            throw new DomainExceptions("Nome invalido");
         }
         
         if(name == Name)
@@ -49,7 +51,7 @@ public class Product
     {
         if (string.IsNullOrWhiteSpace(description))
         {
-           throw new ArgumentException("Descrição invalida");
+           throw new DomainExceptions("Descrição invalida");
         }
         
         if(description == Description)
@@ -62,7 +64,7 @@ public class Product
     {
         if (string.IsNullOrWhiteSpace(flavor))
         {
-            throw new ArgumentException("Sabor invalido");
+            throw new DomainExceptions("Sabor invalido");
         }
         
         if (flavor == Flavor) 

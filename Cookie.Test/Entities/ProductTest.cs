@@ -1,4 +1,5 @@
 using Cookie.Domain.Entities;
+using Cookie.Domain.Exceptions;
 
 namespace Cookie.Test.Entities;
 
@@ -33,13 +34,13 @@ public class ProductTest
         [InlineData("nome", "Descrição", "", 10)]
         [InlineData("nome", "Descrição", "Sabor", 0)]
         [InlineData("nome", "Descrição", "Sabor", -5)]
-        public void Constructor_GivenInvalidParameters_ShouldThrowArgumentException(
+        public void Constructor_GivenInvalidParameters_ShouldThrowDomainExceptions(
             string name,
             string description,
             string flavor,
             decimal price)
         {
-            Assert.Throws<ArgumentException>(() => new Product(name, description, flavor, price));
+            Assert.Throws<DomainExceptions>(() => new Product(name, description, flavor, price));
         }
     }
     
@@ -66,14 +67,14 @@ public class ProductTest
         [InlineData("")]
         [InlineData(null)]
         [InlineData(" ")]
-        public void UpdateName_GivenInvalidParameters_ShouldThrowArgumentException(
+        public void UpdateName_GivenInvalidParameters_ShouldThrowDomainExceptions(
             string nameExpected)
         {
             //arrange
             var product = new Product(Name, Description, FlavorTest, Price);
         
             //assert
-            Assert.Throws<ArgumentException>(() => product.UpdateName(nameExpected));
+            Assert.Throws<DomainExceptions>(() => product.UpdateName(nameExpected));
         }
     }
 
@@ -98,13 +99,13 @@ public class ProductTest
         [InlineData("")]
         [InlineData(null)]
         [InlineData(" ")]
-        public void UpdateDescription_GivenInvalidParameters_ShouldThrowArgumentException(string invalidDescription)
+        public void UpdateDescription_GivenInvalidParameters_ShouldThrowDomainExceptions(string invalidDescription)
         {
             //arrange
             var product = new Product(Name, Description, FlavorTest, Price);
          
             //act -> assert
-            Assert.Throws<ArgumentException>(() => product.UpdateDescription(invalidDescription));
+            Assert.Throws<DomainExceptions>(() => product.UpdateDescription(invalidDescription));
         }
     }
     
@@ -124,10 +125,10 @@ public class ProductTest
         [InlineData("")]
         [InlineData(null)]
         [InlineData(" ")]
-        public void updateFlavor_GivenInvalidParameters_ShouldThrowArgumentException(string invalidFlavor)
+        public void updateFlavor_GivenInvalidParameters_ShouldThrowDomainExceptions(string invalidFlavor)
         {
             var product = new Product(Name, Description, FlavorTest, Price);
-            Assert.Throws<ArgumentException>(() => product.UpdateFlavor(invalidFlavor));
+            Assert.Throws<DomainExceptions>(() => product.UpdateFlavor(invalidFlavor));
         }
     }
 
@@ -154,10 +155,10 @@ public class ProductTest
         [Theory]
         [InlineData(0)]
         [InlineData(-5)]
-        public void SetPrice_GivenInvalidParameters_ShouldThrowArgumentException(decimal invalidPrice)
+        public void SetPrice_GivenInvalidParameters_ShouldThrowDomainExceptions(decimal invalidPrice)
         {
             var product = new Product(Name, Description, FlavorTest, Price);
-            Assert.Throws<ArgumentException>(() => product.SetPrice(invalidPrice));
+            Assert.Throws<DomainExceptions>(() => product.SetPrice(invalidPrice));
         }
     }
 }

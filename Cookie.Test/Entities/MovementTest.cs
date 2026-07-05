@@ -1,6 +1,7 @@
 using Bogus;
 using Cookie.Domain.Entities;
 using Cookie.Domain.Enum;
+using Cookie.Domain.Exceptions;
 
 namespace Cookie.Test.Entities;
 
@@ -26,7 +27,7 @@ public class MovementTest
         [Fact]
         public void constructor_GivenAllParams_ShouldThrowException()
         {
-            Assert.Throws<ArgumentException>(() => new Movement(MovementType.Entry, -5, StockId));
+            Assert.Throws<DomainExceptions>(() => new Movement(MovementType.Entry, -5, StockId));
         }
     }
 
@@ -52,7 +53,7 @@ public class MovementTest
             
             var movementReversal = movement.CreateReversal();
             
-            Assert.Throws<ArgumentException>(() => movementReversal.CreateReversal());
+            Assert.Throws<DomainExceptions>(() => movementReversal.CreateReversal());
             
         }
     }

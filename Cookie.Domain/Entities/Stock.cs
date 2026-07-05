@@ -1,3 +1,4 @@
+using Cookie.Domain.Exceptions;
 namespace Cookie.Domain.Entities;
 
 public class Stock
@@ -14,7 +15,7 @@ public class Stock
     public Stock(int productId, int quantity)
     {
         if(productId == 0)
-            throw new ArgumentException("Um produto deve ser informado");
+            throw new DomainExceptions("Um produto deve ser informado");
         
         ProductId = productId;
         SetQuantity(quantity);
@@ -23,7 +24,7 @@ public class Stock
     public void SetUnitPrice(decimal unitPrice)
     {
         if(unitPrice < 0)
-            throw new ArgumentException("O valor unitario deve ser maior que zero");
+            throw new DomainExceptions("O valor unitario deve ser maior que zero");
         UnitPrice = unitPrice;
     }
 
@@ -36,7 +37,7 @@ public class Stock
     {
         if (quantity < 0)
         {
-            throw new ArgumentException("A quantidade deve ser maior que zero");
+            throw new DomainExceptions("A quantidade deve ser maior que zero");
         }
         
         Quantity += quantity;
@@ -46,17 +47,17 @@ public class Stock
     {
         if (Quantity == 0)
         {
-            throw new ArgumentException("A quantidade do produto é igual a zero");
+            throw new DomainExceptions("A quantidade do produto é igual a zero");
         }
 
         if (Quantity < quantity)
         {
-            throw new ArgumentException("O valor e maior que a quantidade disponivel");
+            throw new DomainExceptions("O valor e maior que a quantidade disponivel");
         }
 
         if (quantity is 0 or < 0)
         {
-            throw new ArgumentException("A quantidade deve ser maior que zero");
+            throw new DomainExceptions("A quantidade deve ser maior que zero");
         }
 
         Quantity -= quantity;

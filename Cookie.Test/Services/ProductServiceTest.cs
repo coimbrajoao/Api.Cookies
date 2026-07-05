@@ -4,6 +4,7 @@ using Cookie.Application.Exceptions;
 using Cookie.Application.Interfaces;
 using Cookie.Application.Services;
 using Cookie.Domain.Entities;
+using Cookie.Domain.Exceptions;
 using Cookie.Domain.Interfaces;
 using Cookie.Infra.Data.Helpers;
 using MockQueryable.Moq;
@@ -69,7 +70,7 @@ public class ProductServiceTest
                 Flavor = _faker.Lorem.Paragraph()
             };
 
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _productService.AddAsync(product));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _productService.AddAsync(product));
 
             Assert.Equal("Nome invalido", message.Message);
         }
@@ -85,7 +86,7 @@ public class ProductServiceTest
                 Flavor = _faker.Lorem.Paragraph()
             };
 
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _productService.AddAsync(product));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _productService.AddAsync(product));
 
             Assert.Equal("Descrição invalida", message.Message);
         }
@@ -101,7 +102,7 @@ public class ProductServiceTest
                 Flavor = _faker.Lorem.Paragraph()
             };
 
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _productService.AddAsync(product));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _productService.AddAsync(product));
 
             Assert.Equal("Preço deve ser maior que zero", message.Message);
         }
@@ -117,7 +118,7 @@ public class ProductServiceTest
                 Flavor = null!
             };
 
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _productService.AddAsync(product));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _productService.AddAsync(product));
 
             Assert.Equal("Sabor invalido", message.Message);
 
@@ -173,7 +174,7 @@ public class ProductServiceTest
 
             //Act
             var message =
-                await Assert.ThrowsAsync<ArgumentException>(() => _productService.UpdateAsync(id, productUpdate));
+                await Assert.ThrowsAsync<DomainExceptions>(() => _productService.UpdateAsync(id, productUpdate));
 
             //Assert
             Assert.NotNull(message);
@@ -199,7 +200,7 @@ public class ProductServiceTest
 
             //Act
             var message =
-                await Assert.ThrowsAsync<ArgumentException>(() => _productService.UpdateAsync(id, productUpdate));
+                await Assert.ThrowsAsync<DomainExceptions>(() => _productService.UpdateAsync(id, productUpdate));
 
             //Assert
             Assert.NotNull(message);
@@ -224,7 +225,7 @@ public class ProductServiceTest
                 .ReturnsAsync(productTeste);
 
             //Act
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _productService.UpdateAsync(id, productUpdate));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _productService.UpdateAsync(id, productUpdate));
 
             //Assert
             Assert.NotNull(message);
@@ -249,7 +250,7 @@ public class ProductServiceTest
                 .ReturnsAsync(productTeste);
             
             //Act
-            var message = await Assert.ThrowsAsync<ArgumentException>(() => _productService.UpdateAsync(id, productUpdate));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _productService.UpdateAsync(id, productUpdate));
             
             //Assert
             Assert.NotNull(message);
