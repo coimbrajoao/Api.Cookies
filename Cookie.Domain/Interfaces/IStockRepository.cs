@@ -10,5 +10,6 @@ public interface IStockRepository
     Task<bool> DeleteAsync(int id);
     Task<PagedList<Stock>> GetAllAsync(int  pageNumber, int pageSize);
     Task<Stock?> GetByIdAsync(int id);
+    Task<Stock?> GetStockByIdProductAsync(int id);
     
 }

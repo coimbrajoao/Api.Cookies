@@ -41,5 +41,9 @@ public class StockRepository(ApplicationDbContext context) : IStockRepository
     {
         return await context.Stock.FindAsync(id);
     }
-    
+
+    public async Task<Stock?> GetStockByIdProductAsync(int id)
+    {
+        return await context.Stock.FirstOrDefaultAsync(x => x.ProductId == id);
+    }
 }

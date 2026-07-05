@@ -8,7 +8,7 @@ using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
-public class StockService(IStockRepository stockRepository, IProductRepository productRepository, IUnitOfWork uow) : IStockService
+public class StockService(IStockRepository stockRepository, IProductRepository productRepository, IUnitOfWork uow, IMovementRepository movementRepository) : IStockService
 
 {
     public async Task<PagedList<StockResponseDto>> GetStocks(int pageNumber, int pageSize)
@@ -64,6 +64,10 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
 
     public async Task<bool> DeleteStock(int stockId)
     {
+        var movement = await movementRepository.GetByStockIdAsync(stockId);
+        if (movement != null)
+            throw new BadRequestException("Não e possivel excluir o estoque pois já existe movimentação");
+        
         var stock = await stockRepository.DeleteAsync(stockId);
         await uow.Save();
         return stock;

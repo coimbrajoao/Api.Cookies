@@ -16,6 +16,7 @@ public class ProductServiceTest
 {
     private readonly Mock<IProductRepository> _productRepositoryMock;
     private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+    private readonly Mock<IStockRepository> _stockRepositoryMock;
     private readonly IProductService _productService;
     private readonly Faker _faker;
 
@@ -28,7 +29,7 @@ public class ProductServiceTest
         _productRepositoryMock = new Mock<IProductRepository>();
         _unitOfWorkMock = new Mock<IUnitOfWork>();
         _unitOfWorkMock.Setup(r => r.Save()).ReturnsAsync(true);
-        _productService = new ProductService(_productRepositoryMock.Object, _unitOfWorkMock.Object);
+        _productService = new ProductService(_productRepositoryMock.Object, _unitOfWorkMock.Object, _stockRepositoryMock.Object);
     }
 
     public class AddProduct : ProductServiceTest

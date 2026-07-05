@@ -27,7 +27,12 @@ public class MovementRepository(ApplicationDbContext context) : IMovementReposit
         context.Movement.Add(movement);
         return movement;
     }
-    
+
+    public async Task<Movement?> GetByStockIdAsync(int stockId)
+    {
+        return await context.Movement.AsQueryable().FirstOrDefaultAsync(m => m.StockId == stockId);
+    }
+
     public async Task<bool> DeleteMovementAsync(int id)
     {
         var movement = await context.Movement.FindAsync(id);

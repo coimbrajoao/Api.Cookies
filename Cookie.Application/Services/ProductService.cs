@@ -7,7 +7,7 @@ using Cookie.Domain.Pagination;
 
 namespace Cookie.Application.Services;
 
-public class ProductService(IProductRepository productRepository, IUnitOfWork uwo) : IProductService
+public class ProductService(IProductRepository productRepository, IUnitOfWork uwo, IStockRepository stockRepository) : IProductService
 {
     public async Task<ProductGetDto> GetByIdAsync(int id)
     {
@@ -71,7 +71,13 @@ public class ProductService(IProductRepository productRepository, IUnitOfWork uw
 
     public async Task<bool> DeleteAsync(int id)
     {
+        var stock = await stockRepository.GetStockByIdProductAsync(id);
+
+        if (stock != null)
+            throw new BadRequestException("Produto com estoque definico");
+        
         var product = await productRepository.DeleteAsync(id);
+        
         await uwo.Save();
         return product;
     }
