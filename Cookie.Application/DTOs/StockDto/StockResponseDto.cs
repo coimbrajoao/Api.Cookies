@@ -8,4 +8,7 @@ public class StockResponseDto
     public decimal Price { get; set; }
     
     public int? userId {get; set;}
+    
+    public string CreatedAt { get; set; }
+    public string dueData { get; set; }
 }

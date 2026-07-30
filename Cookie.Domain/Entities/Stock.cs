@@ -9,6 +9,7 @@ public class Stock
     public decimal UnitPrice { get; private set; }
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
     
+    public DateTime DueDate { get; private set; }
     public int UserId {get; private set;}
     
     public User User { get; set; }
@@ -23,8 +24,8 @@ public class Stock
         
         ProductId = productId;
         SetQuantity(quantity);
+        GenerateDueDate();
         UserId = userId;
-        
     }
     
     public void SetUnitPrice(decimal unitPrice)
@@ -67,5 +68,10 @@ public class Stock
         }
 
         Quantity -= quantity;
+    }
+
+    public void GenerateDueDate()
+    {
+        this.DueDate = CreatedAt.AddDays(90);
     }
 }

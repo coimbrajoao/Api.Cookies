@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R+iVyQTqTM8=",
+  "dgSpecHash": "BL4B2n/SEyM=",
   "success": true,
   "projectFilePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.API\\Cookie.API.csproj",
   "expectedPackageFiles": [
@@ -53,12 +53,14 @@
     "C:\\Users\\coimb\\.nuget\\packages\\system.composition.runtime\\9.0.0\\system.composition.runtime.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.composition.typedparts\\9.0.0\\system.composition.typedparts.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.0\\system.configuration.configurationmanager.9.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.formats.asn1\\11.0.0-preview.6.26359.118\\system.formats.asn1.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.formats.nrbf\\9.0.0\\system.formats.nrbf.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.1\\system.identitymodel.tokens.jwt.8.0.1.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.reflection.metadataloadcontext\\7.0.0\\system.reflection.metadataloadcontext.7.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.resources.extensions\\9.0.0\\system.resources.extensions.9.0.0.nupkg.sha512",
-    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.0\\system.security.cryptography.pkcs.9.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.pkcs\\11.0.0-preview.6.26359.118\\system.security.cryptography.pkcs.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.0\\system.security.cryptography.protecteddata.9.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.xml\\11.0.0-preview.6.26359.118\\system.security.cryptography.xml.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.security.permissions\\9.0.0\\system.security.permissions.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.windows.extensions\\9.0.0\\system.windows.extensions.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\zstdsharp.port\\0.8.6\\zstdsharp.port.0.8.6.nupkg.sha512"

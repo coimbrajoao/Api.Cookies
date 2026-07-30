@@ -9,7 +9,7 @@ namespace Cookie.Infra.Data.Repositories;
 
 public class ProductRepository(ApplicationDbContext context) : IProductRepository
 {
-    public async Task<Product> GetByIdAsync(int id)
+    public async Task<Product?> GetByIdAsync(int id)
     {
         return await context.Product.FindAsync(id);
     }

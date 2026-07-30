@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ze06IWjrrCM=",
+  "dgSpecHash": "2M/Ev2d6Dd0=",
   "success": true,
   "projectFilePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
   "expectedPackageFiles": [
@@ -57,113 +57,17 @@
     "C:\\Users\\coimb\\.nuget\\packages\\system.composition.typedparts\\9.0.0\\system.composition.typedparts.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.0\\system.configuration.configurationmanager.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.0\\system.diagnostics.eventlog.9.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.formats.asn1\\11.0.0-preview.6.26359.118\\system.formats.asn1.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.formats.nrbf\\9.0.0\\system.formats.nrbf.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.1\\system.identitymodel.tokens.jwt.8.0.1.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.reflection.metadataloadcontext\\7.0.0\\system.reflection.metadataloadcontext.7.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.resources.extensions\\9.0.0\\system.resources.extensions.9.0.0.nupkg.sha512",
-    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.0\\system.security.cryptography.pkcs.9.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.pkcs\\11.0.0-preview.6.26359.118\\system.security.cryptography.pkcs.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.0\\system.security.cryptography.protecteddata.9.0.0.nupkg.sha512",
-    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.xml\\9.0.0\\system.security.cryptography.xml.9.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.xml\\11.0.0-preview.6.26359.118\\system.security.cryptography.xml.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.security.permissions\\9.0.0\\system.security.permissions.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.windows.extensions\\9.0.0\\system.windows.extensions.9.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\zstdsharp.port\\0.8.6\\zstdsharp.port.0.8.6.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-23rf-6693-g89p",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-37gx-xxp4-5rgx",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6588-8gv4-xfgh",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-8q5v-6pqq-x66h",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cvvh-rhrc-wg4q",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g8r8-53c2-pm3f",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mmjf-rqrv-855v",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-w3x6-4m5h-cxqf",
-      "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Data\\Cookie.Infra.Data.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

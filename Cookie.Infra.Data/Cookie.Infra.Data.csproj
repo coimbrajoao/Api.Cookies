@@ -22,6 +22,7 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="MySql.EntityFrameworkCore" Version="10.0.1" />
+      <PackageReference Include="System.Security.Cryptography.Xml" Version="11.0.0-preview.6.26359.118" />
     </ItemGroup>
 
 </Project>

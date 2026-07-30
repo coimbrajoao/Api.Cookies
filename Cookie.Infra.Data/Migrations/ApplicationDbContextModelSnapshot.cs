@@ -92,6 +92,9 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 

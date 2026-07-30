@@ -1,9 +1,7 @@
 using System.Text.Json;
 using Cookie.API.Errors;
 using Cookie.Application.Exceptions;
-using Cookie.Application.Exceptions;
 using Cookie.Domain.Exceptions;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Cookie.API.Middleware;
 

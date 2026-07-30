@@ -17,7 +17,7 @@ public class MovementRepository(ApplicationDbContext context) : IMovementReposit
         return await PaginationHelper.CreateAsync(query, pageNumber, pageSize);
     }
 
-    public async Task<Movement> GetMovementByIdAsync(int id)
+    public async Task<Movement?> GetMovementByIdAsync(int id)
     {
         return await context.Movement.FindAsync(id);
     }

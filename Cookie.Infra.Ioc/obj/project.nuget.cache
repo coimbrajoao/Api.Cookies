@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dv4AtUjT230=",
+  "dgSpecHash": "JxR+0PXHrq0=",
   "success": true,
   "projectFilePath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Infra.Ioc\\Cookie.Infra.Ioc.csproj",
   "expectedPackageFiles": [
@@ -33,8 +33,11 @@
     "C:\\Users\\coimb\\.nuget\\packages\\mysql.entityframeworkcore\\10.0.1\\mysql.entityframeworkcore.10.0.1.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.formats.asn1\\11.0.0-preview.6.26359.118\\system.formats.asn1.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.1\\system.identitymodel.tokens.jwt.8.0.1.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.pkcs\\11.0.0-preview.6.26359.118\\system.security.cryptography.pkcs.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
+    "C:\\Users\\coimb\\.nuget\\packages\\system.security.cryptography.xml\\11.0.0-preview.6.26359.118\\system.security.cryptography.xml.11.0.0-preview.6.26359.118.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.security.permissions\\8.0.0\\system.security.permissions.8.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
     "C:\\Users\\coimb\\.nuget\\packages\\zstdsharp.port\\0.8.6\\zstdsharp.port.0.8.6.nupkg.sha512"

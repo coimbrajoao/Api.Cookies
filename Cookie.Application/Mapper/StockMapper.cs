@@ -18,6 +18,8 @@ public static class StockMapper
             ProductId =  stock.ProductId,
             Price = stock.UnitPrice,
             Quantity =  stock.Quantity,
+            dueData = stock.DueDate.ToString("yyyy-MM-dd HH:mm:ss"),
+            CreatedAt = stock.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
             userId = stock.UserId
         };
     }

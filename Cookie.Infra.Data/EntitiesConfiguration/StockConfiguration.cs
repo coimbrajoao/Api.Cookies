@@ -1,6 +1,7 @@
 using Cookie.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Cookie.Infra.Data.EntitiesConfiguration;
 
@@ -14,6 +15,8 @@ public class StockConfiguration : IEntityTypeConfiguration<Stock>
         builder.Property(c => c.UnitPrice)
             .IsRequired();
         builder.Property(c => c.CreatedAt)
+            .IsRequired();
+        builder.Property(c => c.DueDate)
             .IsRequired();
         builder.HasOne(c => c.Product)
             .WithMany(c => c.Stocks)

@@ -1322,6 +1322,22 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "System.Formats.Asn1/11.0.0-preview.6.26359.118": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/System.Formats.Asn1.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/System.Formats.Asn1.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net10.0/_._": {}
+        }
+      },
       "System.Formats.Nrbf/9.0.0": {
         "type": "package",
         "compile": {
@@ -1390,23 +1406,26 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "System.Security.Cryptography.Pkcs/9.0.0": {
+      "System.Security.Cryptography.Pkcs/11.0.0-preview.6.26359.118": {
         "type": "package",
+        "dependencies": {
+          "System.Formats.Asn1": "11.0.0-preview.6.26359.118"
+        },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/System.Security.Cryptography.Pkcs.dll": {
+          "lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net8.0/_._": {}
+          "buildTransitive/net10.0/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.dll": {
+          "runtimes/win/lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1426,6 +1445,25 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "System.Security.Cryptography.Xml/11.0.0-preview.6.26359.118": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Cryptography.Pkcs": "11.0.0-preview.6.26359.118"
+        },
+        "compile": {
+          "lib/net10.0/System.Security.Cryptography.Xml.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/System.Security.Cryptography.Xml.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net10.0/_._": {}
         }
       },
       "System.Security.Permissions/9.0.0": {
@@ -1505,7 +1543,8 @@
           "Cookie.Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.1",
           "Microsoft.EntityFrameworkCore": "10.0.1",
-          "MySql.EntityFrameworkCore": "10.0.1"
+          "MySql.EntityFrameworkCore": "10.0.1",
+          "System.Security.Cryptography.Xml": "11.0.0-preview.6.26359.118"
         },
         "compile": {
           "bin/placeholder/Cookie.Infra.Data.dll": {}
@@ -3797,6 +3836,33 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.Formats.Asn1/11.0.0-preview.6.26359.118": {
+      "sha512": "5d/FBlP6tKnM9W/UNIk2KxOgGZKPKvf9a5Y1Fz69Ee+NpzEaSjNXKSVrjOmX9JMHxdHh0+RhWKnhQSfTrJaZLQ==",
+      "type": "package",
+      "path": "system.formats.asn1/11.0.0-preview.6.26359.118",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net10.0/_._",
+        "buildTransitive/net461/System.Formats.Asn1.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/netcoreapp2.0/System.Formats.Asn1.targets",
+        "lib/net10.0/System.Formats.Asn1.dll",
+        "lib/net10.0/System.Formats.Asn1.xml",
+        "lib/net11.0/System.Formats.Asn1.dll",
+        "lib/net11.0/System.Formats.Asn1.xml",
+        "lib/net462/System.Formats.Asn1.dll",
+        "lib/net462/System.Formats.Asn1.xml",
+        "lib/netstandard2.0/System.Formats.Asn1.dll",
+        "lib/netstandard2.0/System.Formats.Asn1.xml",
+        "system.formats.asn1.11.0.0-preview.6.26359.118.nupkg.sha512",
+        "system.formats.asn1.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Formats.Nrbf/9.0.0": {
       "sha512": "F/6tNE+ckmdFeSQAyQo26bQOqfPFKEfZcuqnp4kBE6/7jP26diP+QTHCJJ6vpEfaY6bLy+hBLiIQUSxSmNwLkA==",
       "type": "package",
@@ -3903,35 +3969,34 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Security.Cryptography.Pkcs/9.0.0": {
-      "sha512": "8tluJF8w9si+2yoHeL8rgVJS6lKvWomTDC8px65Z8MCzzdME5eaPtEQf4OfVGrAxB5fW93ncucy1+221O9EQaw==",
+    "System.Security.Cryptography.Pkcs/11.0.0-preview.6.26359.118": {
+      "sha512": "GfhRDZa3OW8oPjxJFnAUwUvDjdxJUMEvRcJg6KweXlmxLFZReYVB5WZD4PvxP7Zzzmp2odHqsI9Gzr+0ZGD45A==",
       "type": "package",
-      "path": "system.security.cryptography.pkcs/9.0.0",
+      "path": "system.security.cryptography.pkcs/11.0.0-preview.6.26359.118",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net10.0/_._",
         "buildTransitive/net461/System.Security.Cryptography.Pkcs.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/System.Security.Cryptography.Pkcs.targets",
+        "lib/net10.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net10.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/net11.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net11.0/System.Security.Cryptography.Pkcs.xml",
         "lib/net462/System.Security.Cryptography.Pkcs.dll",
         "lib/net462/System.Security.Cryptography.Pkcs.xml",
-        "lib/net8.0/System.Security.Cryptography.Pkcs.dll",
-        "lib/net8.0/System.Security.Cryptography.Pkcs.xml",
-        "lib/net9.0/System.Security.Cryptography.Pkcs.dll",
-        "lib/net9.0/System.Security.Cryptography.Pkcs.xml",
         "lib/netstandard2.0/System.Security.Cryptography.Pkcs.dll",
         "lib/netstandard2.0/System.Security.Cryptography.Pkcs.xml",
         "lib/netstandard2.1/System.Security.Cryptography.Pkcs.dll",
         "lib/netstandard2.1/System.Security.Cryptography.Pkcs.xml",
-        "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll",
-        "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.xml",
-        "runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.dll",
-        "runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.xml",
-        "system.security.cryptography.pkcs.9.0.0.nupkg.sha512",
+        "runtimes/win/lib/net10.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net10.0/System.Security.Cryptography.Pkcs.xml",
+        "runtimes/win/lib/net11.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net11.0/System.Security.Cryptography.Pkcs.xml",
+        "system.security.cryptography.pkcs.11.0.0-preview.6.26359.118.nupkg.sha512",
         "system.security.cryptography.pkcs.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3967,6 +4032,32 @@
         "lib/xamarinwatchos10/_._",
         "system.security.cryptography.protecteddata.9.0.0.nupkg.sha512",
         "system.security.cryptography.protecteddata.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Security.Cryptography.Xml/11.0.0-preview.6.26359.118": {
+      "sha512": "AVIDGag1OOSFh2Q7TEFUkLkcY1HudZIXEEQSezMVNh2wq4wUS8Ar2qtngGEKIpv2npb6o+zsZzPI7Sj1c+gKtA==",
+      "type": "package",
+      "path": "system.security.cryptography.xml/11.0.0-preview.6.26359.118",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net10.0/_._",
+        "buildTransitive/net461/System.Security.Cryptography.Xml.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/netcoreapp2.0/System.Security.Cryptography.Xml.targets",
+        "lib/net10.0/System.Security.Cryptography.Xml.dll",
+        "lib/net10.0/System.Security.Cryptography.Xml.xml",
+        "lib/net11.0/System.Security.Cryptography.Xml.dll",
+        "lib/net11.0/System.Security.Cryptography.Xml.xml",
+        "lib/net462/System.Security.Cryptography.Xml.dll",
+        "lib/net462/System.Security.Cryptography.Xml.xml",
+        "lib/netstandard2.0/System.Security.Cryptography.Xml.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.Xml.xml",
+        "system.security.cryptography.xml.11.0.0-preview.6.26359.118.nupkg.sha512",
+        "system.security.cryptography.xml.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },

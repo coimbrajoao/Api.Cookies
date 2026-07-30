@@ -12,7 +12,8 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.1",
           "Microsoft.EntityFrameworkCore": "10.0.1",
           "Microsoft.EntityFrameworkCore.Design": "10.0.1",
-          "MySql.EntityFrameworkCore": "10.0.1"
+          "MySql.EntityFrameworkCore": "10.0.1",
+          "System.Security.Cryptography.Xml": "11.0.0-preview.6.26359.118"
         },
         "runtime": {
           "Cookie.Infra.Data.dll": {}
@@ -113,7 +114,9 @@
           "System.Configuration.ConfigurationManager": "9.0.0",
           "System.Formats.Nrbf": "9.0.0",
           "System.Resources.Extensions": "9.0.0",
-          "System.Security.Cryptography.ProtectedData": "9.0.0"
+          "System.Security.Cryptography.Pkcs": "11.0.0-preview.6.26359.118",
+          "System.Security.Cryptography.ProtectedData": "9.0.0",
+          "System.Security.Cryptography.Xml": "11.0.0-preview.6.26359.118"
         },
         "runtime": {
           "lib/net9.0/Microsoft.Build.Tasks.Core.dll": {
@@ -360,7 +363,9 @@
           "System.Composition": "9.0.0",
           "System.Configuration.ConfigurationManager": "9.0.0",
           "System.Resources.Extensions": "9.0.0",
+          "System.Security.Cryptography.Pkcs": "11.0.0-preview.6.26359.118",
           "System.Security.Cryptography.ProtectedData": "9.0.0",
+          "System.Security.Cryptography.Xml": "11.0.0-preview.6.26359.118",
           "System.Security.Permissions": "9.0.0",
           "System.Windows.Extensions": "9.0.0"
         },
@@ -701,6 +706,14 @@
           }
         }
       },
+      "System.Formats.Asn1/11.0.0-preview.6.26359.118": {
+        "runtime": {
+          "lib/net10.0/System.Formats.Asn1.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.36018"
+          }
+        }
+      },
       "System.Formats.Nrbf/9.0.0": {
         "runtime": {
           "lib/net9.0/System.Formats.Nrbf.dll": {
@@ -740,11 +753,41 @@
           }
         }
       },
+      "System.Security.Cryptography.Pkcs/11.0.0-preview.6.26359.118": {
+        "dependencies": {
+          "System.Formats.Asn1": "11.0.0-preview.6.26359.118"
+        },
+        "runtime": {
+          "lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.36018"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.36018"
+          }
+        }
+      },
       "System.Security.Cryptography.ProtectedData/9.0.0": {
         "runtime": {
           "lib/net9.0/System.Security.Cryptography.ProtectedData.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.24.52809"
+          }
+        }
+      },
+      "System.Security.Cryptography.Xml/11.0.0-preview.6.26359.118": {
+        "dependencies": {
+          "System.Security.Cryptography.Pkcs": "11.0.0-preview.6.26359.118"
+        },
+        "runtime": {
+          "lib/net10.0/System.Security.Cryptography.Xml.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.36018"
           }
         }
       },
@@ -1079,6 +1122,13 @@
       "path": "system.configuration.configurationmanager/9.0.0",
       "hashPath": "system.configuration.configurationmanager.9.0.0.nupkg.sha512"
     },
+    "System.Formats.Asn1/11.0.0-preview.6.26359.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5d/FBlP6tKnM9W/UNIk2KxOgGZKPKvf9a5Y1Fz69Ee+NpzEaSjNXKSVrjOmX9JMHxdHh0+RhWKnhQSfTrJaZLQ==",
+      "path": "system.formats.asn1/11.0.0-preview.6.26359.118",
+      "hashPath": "system.formats.asn1.11.0.0-preview.6.26359.118.nupkg.sha512"
+    },
     "System.Formats.Nrbf/9.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1107,12 +1157,26 @@
       "path": "system.resources.extensions/9.0.0",
       "hashPath": "system.resources.extensions.9.0.0.nupkg.sha512"
     },
+    "System.Security.Cryptography.Pkcs/11.0.0-preview.6.26359.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GfhRDZa3OW8oPjxJFnAUwUvDjdxJUMEvRcJg6KweXlmxLFZReYVB5WZD4PvxP7Zzzmp2odHqsI9Gzr+0ZGD45A==",
+      "path": "system.security.cryptography.pkcs/11.0.0-preview.6.26359.118",
+      "hashPath": "system.security.cryptography.pkcs.11.0.0-preview.6.26359.118.nupkg.sha512"
+    },
     "System.Security.Cryptography.ProtectedData/9.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-CJW+x/F6fmRQ7N6K8paasTw9PDZp4t7G76UjGNlSDgoHPF0h08vTzLYbLZpOLEJSg35d5wy2jCXGo84EN05DpQ==",
       "path": "system.security.cryptography.protecteddata/9.0.0",
       "hashPath": "system.security.cryptography.protecteddata.9.0.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.Xml/11.0.0-preview.6.26359.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AVIDGag1OOSFh2Q7TEFUkLkcY1HudZIXEEQSezMVNh2wq4wUS8Ar2qtngGEKIpv2npb6o+zsZzPI7Sj1c+gKtA==",
+      "path": "system.security.cryptography.xml/11.0.0-preview.6.26359.118",
+      "hashPath": "system.security.cryptography.xml.11.0.0-preview.6.26359.118.nupkg.sha512"
     },
     "System.Security.Permissions/9.0.0": {
       "type": "package",
