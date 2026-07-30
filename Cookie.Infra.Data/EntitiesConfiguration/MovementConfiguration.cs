@@ -24,5 +24,9 @@ public class MovementConfiguration : IEntityTypeConfiguration<Movement>
             .HasForeignKey(x => x.IdMaster)
             .IsRequired(false)
             .OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(x => x.User)
+            .WithMany(x => x.Movements)
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

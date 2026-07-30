@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Cookie.API.Extensions;
 using Cookie.API.Models;
 using Cookie.Application.DTOs.MovementDto;
@@ -17,7 +18,8 @@ public class MovementController(IMovementService movementService) : Controller
     
     public async Task<ActionResult> AddMovementAsync(MovementRequestDto movementRequestDto)
     {
-        var movement = await movementService.AddMovementAsync(movementRequestDto);
+        var userId = int.Parse(User.FindFirst("Id")?.Value);
+        var movement = await movementService.AddMovementAsync(movementRequestDto, userId);
         return Ok(movement);
     }
 

@@ -16,7 +16,7 @@ public class StockTest
         public void Constructor_WhenParametersAreValid_ShouldCreateStock()
         {
             // Act
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
 
             // Assert
             Assert.Equal(ValidProductId, stock.ProductId);
@@ -28,7 +28,7 @@ public class StockTest
         public void Constructor_WhenProductIdIsZero_ShouldThrowDomainExceptions()
         {
             // Act & Assert
-            var exception = Assert.Throws<DomainExceptions>(() => new Stock(0, ValidQuantity));
+            var exception = Assert.Throws<DomainExceptions>(() => new Stock(0, ValidQuantity,1));
             Assert.Equal("Um produto deve ser informado", exception.Message);
         }
     }
@@ -39,7 +39,7 @@ public class StockTest
         public void SetUnitPrice_WhenValueIsValid_ShouldSetUnitPrice()
         {
             // Arrange
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
 
             // Act
             stock.SetUnitPrice(ValidUnitPrice);
@@ -52,7 +52,7 @@ public class StockTest
         public void SetUnitPrice_WhenValueIsNegative_ShouldThrowDomainExceptions()
         {
             // Arrange
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
 
             // Act & Assert
             var exception = Assert.Throws<DomainExceptions>(() => stock.SetUnitPrice(-1));
@@ -66,7 +66,7 @@ public class StockTest
         public void IncreaseStock_WhenQuantityIsValid_ShouldIncreaseQuantity()
         {
             // Arrange
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
             var increment = 5;
 
             // Act
@@ -80,7 +80,7 @@ public class StockTest
         public void IncreaseStock_WhenQuantityIsNegative_ShouldThrowDomainExceptions()
         {
             // Arrange
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
 
             // Act & Assert
             var exception = Assert.Throws<DomainExceptions>(() => stock.IncreaseStock(-1));
@@ -94,7 +94,7 @@ public class StockTest
         public void DecreaseStock_WhenQuantityIsValid_ShouldDecreaseQuantity()
         {
             // Arrange
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
             var decrement = 5;
 
             // Act
@@ -108,7 +108,7 @@ public class StockTest
         public void DecreaseStock_WhenStockIsZero_ShouldThrowDomainExceptions()
         {
             // Arrange
-            var stock = new Stock(ValidProductId, 0);
+            var stock = new Stock(ValidProductId, 0,1);
 
             // Act & Assert
             var exception = Assert.Throws<DomainExceptions>(() => stock.DecreaseStock(5));
@@ -119,7 +119,7 @@ public class StockTest
         public void DecreaseStock_WhenDecrementIsGreaterThanAvailable_ShouldThrowDomainExceptions()
         {
             // Arrange
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
 
             // Act & Assert
             var exception = Assert.Throws<DomainExceptions>(() => stock.DecreaseStock(ValidQuantity + 1));
@@ -132,7 +132,7 @@ public class StockTest
         public void DecreaseStock_WhenQuantityIsZeroOrNegative_ShouldThrowDomainExceptions(int invalidDecrement)
         {
             // Arrange
-            var stock = new Stock(ValidProductId, ValidQuantity);
+            var stock = new Stock(ValidProductId, ValidQuantity,1);
 
             // Act & Assert
             var exception = Assert.Throws<DomainExceptions>(() => stock.DecreaseStock(invalidDecrement));

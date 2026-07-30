@@ -18,7 +18,7 @@ public class StockServiceTest
     private readonly Mock<IMovementRepository> _movementRepositoryMock;
     private readonly IStockService _stockService;
     private readonly Faker _faker;
-
+    private int userID = 1;
     public StockServiceTest()
     {
         _stockRepositoryMock = new Mock<IStockRepository>();
@@ -41,7 +41,7 @@ public class StockServiceTest
             .ReturnsAsync(product);
 
         // Act
-        var result = await _stockService.CreateStock(stockRequestDto);
+        var result = await _stockService.CreateStock(stockRequestDto, userID);
 
         // Assert
         Assert.NotNull(result);
@@ -62,7 +62,7 @@ public class StockServiceTest
             .ReturnsAsync((Product)null!);
 
         // Act & Assert
-        await Assert.ThrowsAsync<NotFoundException>(() => _stockService.CreateStock(stockRequestDto));
+        await Assert.ThrowsAsync<NotFoundException>(() => _stockService.CreateStock(stockRequestDto, userID));
         _stockRepositoryMock.Verify(r => r.AddAsync(It.IsAny<Stock>()), Times.Never);
     }
 
@@ -71,7 +71,7 @@ public class StockServiceTest
     {
         // Arrange
         var stockId = _faker.Random.Int(1, 100);
-        var stock = new Stock(1, 10);
+        var stock = new Stock(1, 1,1);
         stock.SetUnitPrice(5.0m);
 
         _stockRepositoryMock.Setup(r => r.GetByIdAsync(stockId))

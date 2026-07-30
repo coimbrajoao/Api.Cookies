@@ -15,6 +15,8 @@ public class User
     public DateTime CreatedAt { get; private set; } =  DateTime.Now;
     
     public Permission UserRole { get; private set; }
+
+    public ICollection<Movement> Movements { get; set; } = [];
     
     public User(){}
     public User(string username, Permission userRole, string email, byte[] passwordHash, byte[] passwordSalt)

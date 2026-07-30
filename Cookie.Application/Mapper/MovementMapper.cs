@@ -5,9 +5,9 @@ namespace Cookie.Application.Mapper;
 
 public static class MovementMapper
 {
-    public static Movement MapMovement(MovementRequestDto movementRequestDto)
+    public static Movement MapMovement(MovementRequestDto movementRequestDto, int userId)
     {
-        return new Movement(movementRequestDto.TypeMovement, movementRequestDto.Quantity, movementRequestDto.StockId);
+        return new Movement(movementRequestDto.TypeMovement, movementRequestDto.Quantity, movementRequestDto.StockId, userId);
     }
 
     public static MovementResponseDto MapMovementResponse(Movement movement)
@@ -20,6 +20,7 @@ public static class MovementMapper
             TypeMovement = movement.TypeMovement,
             Quantity = movement.Quantity,
             IdMaster = movement.IdMaster,
+            IdUser = movement.UserId
         };
     }
 }

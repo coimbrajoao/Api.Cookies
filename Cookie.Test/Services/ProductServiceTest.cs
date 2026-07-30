@@ -28,6 +28,8 @@ public class ProductServiceTest
         _faker = new Faker();
         _productRepositoryMock = new Mock<IProductRepository>();
         _unitOfWorkMock = new Mock<IUnitOfWork>();
+        _stockRepositoryMock = new Mock<IStockRepository>();
+        
         _unitOfWorkMock.Setup(r => r.Save()).ReturnsAsync(true);
         _productService = new ProductService(_productRepositoryMock.Object, _unitOfWorkMock.Object, _stockRepositoryMock.Object);
     }
@@ -43,7 +45,7 @@ public class ProductServiceTest
                 Name = _faker.Name.FirstName(),
                 Description = _faker.Lorem.Paragraph(),
                 Price = _faker.Random.Decimal(10, 100),
-                Flavor = _faker.Lorem.Paragraph()
+                Flavor = _faker.Lorem.Paragraph(),
             };
 
             //act

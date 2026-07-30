@@ -15,4 +15,6 @@ public class MovementResponseDto
     public int StockId { get; set; }
     
     public int? IdMaster { get; set; }
+    
+    public int? IdUser { get; set; }
 }

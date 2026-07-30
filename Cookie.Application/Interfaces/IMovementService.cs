@@ -8,7 +8,7 @@ public interface IMovementService
     
     Task<PagedList<MovementResponseDto>> GetMovementsAsync(int pageNumber, int pageSize);
     Task<MovementResponseDto> GetMovementAsync(int id);
-    Task<MovementResponseDto> AddMovementAsync(MovementRequestDto movement);
+    Task<MovementResponseDto> AddMovementAsync(MovementRequestDto movement, int userId);
     Task<MovementResponseDto> RevertMovementAsync(int id);
     
 }

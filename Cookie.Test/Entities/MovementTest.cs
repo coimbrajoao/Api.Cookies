@@ -17,7 +17,7 @@ public class MovementTest
         [Fact]
         public void constructor_GivenAllParams_ShouldSetProperties()
         {
-            var movement = new Movement(MovementType.Entry, ValidQuantity, StockId);
+            var movement = new Movement(MovementType.Entry, ValidQuantity,1, StockId);
             
             Assert.Equal(MovementType.Entry, movement.TypeMovement);
             Assert.Equal(StockId, movement.StockId);
@@ -27,7 +27,7 @@ public class MovementTest
         [Fact]
         public void constructor_GivenAllParams_ShouldThrowException()
         {
-            Assert.Throws<DomainExceptions>(() => new Movement(MovementType.Entry, -5, StockId));
+            Assert.Throws<DomainExceptions>(() => new Movement(MovementType.Entry, -5, 1, StockId));
         }
     }
 
@@ -36,7 +36,7 @@ public class MovementTest
         [Fact]
         public void CreateReversal_GivenReversalMovement()
         {
-            var movement = new Movement(MovementType.Entry, ValidQuantity, StockId);
+            var movement = new Movement(MovementType.Entry, ValidQuantity,  StockId, 1);
 
             var movementReversal = movement.CreateReversal();
             
@@ -49,7 +49,7 @@ public class MovementTest
         [Fact]
         public void CreateReversal_GivenReversalMovement_ShouldThrowException()
         {
-            var movement = new Movement(MovementType.Entry, 10, StockId);
+            var movement = new Movement(MovementType.Entry, 10, StockId ,1);
             
             var movementReversal = movement.CreateReversal();
             

@@ -25,9 +25,9 @@ public class StockService(IStockRepository stockRepository, IProductRepository p
         return (stock == null ? throw new NotFoundException("Estoque não foi encotrado"): StockMapper.MapToStockResponse(stock))!;
     }
 
-    public async Task<StockResponseDto> CreateStock(StockRequestDto stockRequestDto)
+    public async Task<StockResponseDto> CreateStock(StockRequestDto stockRequestDto, int userId)
     {
-        var  stock = StockMapper.MapToStock(stockRequestDto);
+        var  stock = StockMapper.MapToStock(stockRequestDto, userId);
         var product = await productRepository.GetByIdAsync(stock.ProductId);
         if (product == null)
         {

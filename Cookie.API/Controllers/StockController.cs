@@ -17,7 +17,8 @@ public class StockController(IStockService stockService) : Controller
     
     public async Task<ActionResult> CreateStock(StockRequestDto stockRequestDto)
     {
-        var CreatedStock = await stockService.CreateStock(stockRequestDto);
+        var userId = int.Parse(User.FindFirst("Id").Value);
+        var CreatedStock = await stockService.CreateStock(stockRequestDto,userId);
         if (CreatedStock == null)
         {
             return BadRequest("Não foi possivel criar o estoque");

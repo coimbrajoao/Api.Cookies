@@ -13,12 +13,14 @@ public class Movement
     public MovementType TypeMovement { get; private set; }
     public int StockId { get; private set; }
     
+    public int UserId {get; private set; }
     public Movement ParentMovement { get; set; }
+    public User User { get; set; }
     public Stock  Stock { get; set; }
     
     public Movement(){}
     
-    public Movement(MovementType type, int quantity,  int stockId, int? idMaster =  null)
+    public Movement(MovementType type, int quantity,  int stockId, int userId, int? idMaster =  null)
     {
         if (quantity <= 0)
             throw new DomainExceptions("O valor deve ser maior que zero");
@@ -31,6 +33,7 @@ public class Movement
         CreatedAt = DateTime.UtcNow;
         StockId = stockId;
         IdMaster =  idMaster;
+        UserId = userId;
     }
     
     

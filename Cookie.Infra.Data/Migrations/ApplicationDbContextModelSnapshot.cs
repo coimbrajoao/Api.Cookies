@@ -40,11 +40,16 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<int>("TypeMovement")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdMaster");
 
                     b.HasIndex("StockId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Movement");
                 });
@@ -96,9 +101,14 @@ namespace Cookie.Infra.Data.Migrations
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Stock");
                 });
@@ -130,13 +140,13 @@ namespace Cookie.Infra.Data.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("varbinary(128)");
 
-                    b.Property<int>("UserRole")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Username")
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("varchar(128)");
+
+                    b.Property<int>("UserRole")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -156,9 +166,17 @@ namespace Cookie.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("Cookie.Domain.Entities.User", "User")
+                        .WithMany("Movements")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("ParentMovement");
 
                     b.Navigation("Stock");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cookie.Domain.Entities.Stock", b =>
@@ -169,12 +187,25 @@ namespace Cookie.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("Cookie.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Cookie.Domain.Entities.Product", b =>
                 {
                     b.Navigation("Stocks");
+                });
+
+            modelBuilder.Entity("Cookie.Domain.Entities.User", b =>
+                {
+                    b.Navigation("Movements");
                 });
 #pragma warning restore 612, 618
         }

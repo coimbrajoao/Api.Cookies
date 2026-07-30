@@ -5,9 +5,9 @@ namespace Cookie.Application.Mapper;
 
 public static class StockMapper
 {
-    public static Stock MapToStock(StockRequestDto stockRequestDto)
+    public static Stock MapToStock(StockRequestDto stockRequestDto, int userId)
     {
-        return new Stock(stockRequestDto.ProductId, stockRequestDto.Quantity);
+        return new Stock(stockRequestDto.ProductId, stockRequestDto.Quantity,userId);
     }
 
     public static StockResponseDto MapToStockResponse(Stock stock)
@@ -18,6 +18,7 @@ public static class StockMapper
             ProductId =  stock.ProductId,
             Price = stock.UnitPrice,
             Quantity =  stock.Quantity,
+            userId = stock.UserId
         };
     }
     

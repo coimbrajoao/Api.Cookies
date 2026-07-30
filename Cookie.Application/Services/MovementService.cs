@@ -29,15 +29,10 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
         return movement == null ? throw new NotFoundException("Nenhum movimento foi encontrado") : MovementMapper.MapMovementResponse(movement);
     }
 
-    public async Task<MovementResponseDto> AddMovementAsync(MovementRequestDto movementRequestDto)
+    public async Task<MovementResponseDto> AddMovementAsync(MovementRequestDto movementRequestDto, int userId)
     {
+        var movement = MovementMapper.MapMovement(movementRequestDto, userId);
         
-        // if (movementRequestDto.Quantity <= 0)
-        // {
-        //     throw new BadRequestException("A quantidade do movimento deve ser maior que zero.");
-        // }
-        
-        var movement = MovementMapper.MapMovement(movementRequestDto);
         if (movement == null)
         {
             throw new NotFoundException("Nenhum movimento foi encontrado");
@@ -75,7 +70,6 @@ public class MovementService(IMovementRepository movementRepository, IStockRepos
     public async Task<MovementResponseDto> RevertMovementAsync(int id)
     {
        var movement = await movementRepository.GetMovementByIdAsync(id);
-       
        
        if (movement == null)
        {

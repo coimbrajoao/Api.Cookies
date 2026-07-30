@@ -23,9 +23,9 @@ public class MovementServiceTest
     private readonly IMovementService _movementService;
     private readonly Faker _faker;
 
-    private Stock stockTest = new Stock(1 , 10);
-
-    private Movement movementTest = new Movement(0, 10, 1);
+    private Stock stockTest = new Stock(1 , 10, 1);
+    private int userID = 1;
+    private Movement movementTest = new Movement(0, 10, 1, 1);
     private Movement movementRevertTest = new Movement(0, 10, 1, 1);
     
     public MovementServiceTest()
@@ -51,13 +51,13 @@ public class MovementServiceTest
                 TypeMovement = MovementType.Exit
             };
             
-            var movement = MovementMapper.MapMovement(movementDto);
+            var movement = MovementMapper.MapMovement(movementDto, userID);
             
             _movementRepositoryMock.Setup(repo => repo.AddMovementAsync(movement)).ReturnsAsync(movement);
             _stockRepositoryMock.Setup(repoStock => repoStock.GetByIdAsync(1)).ReturnsAsync(stockTest);
             
             //act
-            var result = await _movementService.AddMovementAsync(movementDto);
+            var result = await _movementService.AddMovementAsync(movementDto, userID);
             
             //assert
             Assert.NotNull(result);
@@ -76,7 +76,7 @@ public class MovementServiceTest
                 TypeMovement = MovementType.Exit
             };
             
-            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _movementService.AddMovementAsync(movementDto));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _movementService.AddMovementAsync(movementDto, userID));
             
             Assert.NotNull(message);
             Assert.Equal("O valor deve ser maior que zero", message.Message);            
@@ -94,7 +94,7 @@ public class MovementServiceTest
 
             _stockRepositoryMock.Setup(repo => repo.GetByIdAsync(1)).ReturnsAsync((Stock)null!);
             
-            var message = await Assert.ThrowsAsync<NotFoundException>(() => _movementService.AddMovementAsync(movementDto));
+            var message = await Assert.ThrowsAsync<NotFoundException>(() => _movementService.AddMovementAsync(movementDto, userID));
 
             Assert.NotNull(message);
             Assert.Equal("Nenhum stock foi encontrado", message.Message);
@@ -111,7 +111,7 @@ public class MovementServiceTest
             };
 
             
-            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _movementService.AddMovementAsync(movementDto));
+            var message = await Assert.ThrowsAsync<DomainExceptions>(() => _movementService.AddMovementAsync(movementDto, userID));
 
             Assert.NotNull(message);
             Assert.Equal("Um estoque deve ser informado", message.Message);
@@ -152,8 +152,8 @@ public class MovementServiceTest
         public async void ReverseMovement_WhithQuantityIsSmallerThanZero_ShouldThrowException()
         {
             //arrange
-            Stock stock = new Stock(1 , 5);
-            Movement movement = new Movement(MovementType.Entry, 10, 1);
+            Stock stock = new Stock(1, 5, 1);
+            Movement movement = new Movement(MovementType.Entry, 10, 1, 1);
             _movementRepositoryMock.Setup(repo => repo.GetMovementByIdAsync(1)).ReturnsAsync(movement);
             _stockRepositoryMock.Setup(repo => repo.GetByIdAsync(1)).ReturnsAsync(stock);
 

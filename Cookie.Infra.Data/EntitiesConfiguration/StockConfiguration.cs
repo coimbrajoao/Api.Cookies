@@ -19,5 +19,9 @@ public class StockConfiguration : IEntityTypeConfiguration<Stock>
             .WithMany(c => c.Stocks)
             .HasForeignKey(c => c.ProductId)
             .OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(c => c.User)
+            .WithMany()
+            .HasForeignKey(u => u.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

@@ -32,9 +32,9 @@ public class ProductService(IProductRepository productRepository, IUnitOfWork uw
         return new PagedList<ProductGetDto>(productDto, list.CurrentPage, list.PageSize,  list.TotalCount);
     }
 
-    public async Task<ProductGetDto> AddAsync(ProductRequestDto productGetDto)
+    public async Task<ProductGetDto> AddAsync(ProductRequestDto productRequestDto)
     {
-        var productPost = ProductMapper.MapToProduct(productGetDto);
+        var productPost = ProductMapper.MapToProduct(productRequestDto);
         await productRepository.AddAsync(productPost);
         await uwo.Save();
         var productGet = ProductMapper.MapToProductGetDto(productPost);
