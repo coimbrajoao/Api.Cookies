@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Cookie.Application\Cookie.Application.csproj" />
       <ProjectReference Include="..\Cookie.Domain\Cookie.Domain.csproj" />
     </ItemGroup>
 

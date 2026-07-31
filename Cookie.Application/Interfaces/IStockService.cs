@@ -5,7 +5,7 @@ namespace Cookie.Application.Interfaces;
 
 public interface IStockService
 {
-    Task<PagedList<StockResponseDto>> GetStocks(int pageNumber, int pageSize);
+    Task<PagedList<StockResponseDto>> GetStocks(int pageNumber, int pageSize, StockFilterDto stockFilterDto);
     Task<StockResponseDto> GetStockById(int stockId);
     Task<StockResponseDto>  CreateStock(StockRequestDto stockRequestDto, int userId);
     Task<StockResponseDto> UpdateStock(int id, StockUpdateDto stockUpdateDto);

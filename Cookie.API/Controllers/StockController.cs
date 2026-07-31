@@ -29,9 +29,9 @@ public class StockController(IStockService stockService) : Controller
 
     [HttpGet]
     [Authorize(Roles = "StockClerk,Admin")]
-    public async Task<ActionResult> GetAllStock([FromQuery] PaginationParams paginationParams)
+    public async Task<ActionResult> GetAllStock([FromQuery] PaginationParams paginationParams, [FromQuery]StockFilterDto stockFilterDto)
     {
-        var allStock = await stockService.GetStocks(paginationParams.PageNumber, paginationParams.PageSize);
+        var allStock = await stockService.GetStocks(paginationParams.PageNumber, paginationParams.PageSize, stockFilterDto);
         
         Response.AddPaginationHeader(new PaginationHeader(paginationParams.PageNumber, paginationParams.PageSize, allStock.TotalPages, allStock.TotalCount));
         

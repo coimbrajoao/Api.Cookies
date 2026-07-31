@@ -26,7 +26,9 @@ public class LoginController(IUserService _userService, IAuthenticate _authentic
         if (user == null)
             return BadRequest("Usuario nao encontrado");
 
-        _authenticate.Authenticate(request.Email, request.Password);
+        var userValidat = await _authenticate.Authenticate(request.Email, request.Password);
+        if(!userValidat)
+            return Unauthorized("Usuario ou senha invalido");
         
         var token = _authenticate.GenerateToken(user.Id, user.Email, user.UserRole);
 

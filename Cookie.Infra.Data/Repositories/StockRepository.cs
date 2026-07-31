@@ -1,7 +1,7 @@
-using System.Runtime.CompilerServices;
 using Cookie.Domain.Entities;
 using Cookie.Domain.Interfaces;
 using Cookie.Domain.Pagination;
+using Cookie.Domain.Queries;
 using Cookie.Infra.Data.Context;
 using Cookie.Infra.Data.Helpers;
 using Microsoft.EntityFrameworkCore;
@@ -31,9 +31,40 @@ public class StockRepository(ApplicationDbContext context) : IStockRepository
 
     }
 
-    public async Task<PagedList<Stock>> GetAllAsync(int  pageNumber, int pageSize)
+    public async Task<PagedList<Stock>> GetAllAsync(int  pageNumber, int pageSize, StockFilter filter )
     {
         var query = context.Stock.AsQueryable().AsNoTracking();
+
+        if (!string.IsNullOrWhiteSpace(filter.Name))
+            query = query.Where(s => s.Product.Name.Contains(filter.Name));
+        
+
+        if (!string.IsNullOrWhiteSpace(filter.OrderBy))
+        {
+            bool isAsc = filter.OrderByDirection == 0;
+
+            query = filter.OrderBy.ToLower() switch
+            {
+                "name" => isAsc ? query.OrderBy(s => s.Product.Name) : query.OrderByDescending(s => s.Product.Name),
+                "createdat" => isAsc ? query.OrderBy(s => s.CreatedAt) : query.OrderByDescending(s => s.CreatedAt),
+                "price" => isAsc ? query.OrderBy(s => s.UnitPrice) : query.OrderByDescending(s => s.UnitPrice),
+                _ => query.OrderBy(s => s.Id) 
+            };
+        }
+
+        if (filter.MinQuantity.HasValue)
+            query = query.Where(s => s.Quantity >= filter.MinQuantity.Value);
+
+        if (filter.MaxQuantity.HasValue)
+            query = query.Where(s => s.Quantity <= filter.MaxQuantity.Value);
+        
+        
+        if(filter.MinDate.HasValue)
+            query = query.Where(s => s.DueDate >= filter.MinDate.Value);
+        
+        if(filter.MaxDate.HasValue)
+            query = query.Where(s => s.DueDate <= filter.MaxDate.Value);
+        
         return await  PaginationHelper.CreateAsync(query, pageNumber, pageSize);
     }
 

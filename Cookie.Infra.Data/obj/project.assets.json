@@ -1624,6 +1624,20 @@
           "lib/net9.0/ZstdSharp.dll": {}
         }
       },
+      "Cookie.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Cookie.Domain": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Cookie.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cookie.Application.dll": {}
+        }
+      },
       "Cookie.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -4210,6 +4224,11 @@
         "zstdsharp.port.nuspec"
       ]
     },
+    "Cookie.Application/1.0.0": {
+      "type": "project",
+      "path": "../Cookie.Application/Cookie.Application.csproj",
+      "msbuildProject": "../Cookie.Application/Cookie.Application.csproj"
+    },
     "Cookie.Domain/1.0.0": {
       "type": "project",
       "path": "../Cookie.Domain/Cookie.Domain.csproj",
@@ -4218,6 +4237,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Cookie.Application >= 1.0.0",
       "Cookie.Domain >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.1",
       "Microsoft.EntityFrameworkCore >= 10.0.1",
@@ -4252,6 +4272,9 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj": {
+              "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Application\\Cookie.Application.csproj"
+            },
             "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj": {
               "projectPath": "C:\\Users\\coimb\\RiderProjects\\Api.Cookies\\Cookie.Domain\\Cookie.Domain.csproj"
             }

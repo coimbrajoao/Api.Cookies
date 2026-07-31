@@ -126,3 +126,5 @@ C:\Users\coimb\RiderProjects\Api.Cookies\Cookie.Infra.Data\obj\Debug\net10.0\ref
 C:\Users\coimb\RiderProjects\Api.Cookies\Cookie.Infra.Data\obj\Debug\net10.0\Cookie.Infra.Data.pdb
 C:\Users\coimb\RiderProjects\Api.Cookies\Cookie.Infra.Data\obj\Debug\net10.0\Cookie.Infra.Data.genruntimeconfig.cache
 C:\Users\coimb\RiderProjects\Api.Cookies\Cookie.Infra.Data\obj\Debug\net10.0\ref\Cookie.Infra.Data.dll
+C:\Users\coimb\RiderProjects\Api.Cookies\Cookie.Infra.Data\bin\Debug\net10.0\Cookie.Application.dll
+C:\Users\coimb\RiderProjects\Api.Cookies\Cookie.Infra.Data\bin\Debug\net10.0\Cookie.Application.pdb

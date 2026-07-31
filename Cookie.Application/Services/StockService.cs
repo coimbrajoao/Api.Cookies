@@ -11,9 +11,11 @@ namespace Cookie.Application.Services;
 public class StockService(IStockRepository stockRepository, IProductRepository productRepository, IUnitOfWork uow, IMovementRepository movementRepository) : IStockService
 
 {
-    public async Task<PagedList<StockResponseDto>> GetStocks(int pageNumber, int pageSize)
+    public async Task<PagedList<StockResponseDto>> GetStocks(int pageNumber, int pageSize,
+        StockFilterDto stockFilterDto)
     {
-        var list = await stockRepository.GetAllAsync(pageNumber, pageSize);
+        var stockFilter = StockMapper.MapToStockFilterDto(stockFilterDto);
+        var list = await stockRepository.GetAllAsync(pageNumber, pageSize, stockFilter);
         
         var stockDto = list.Select(StockMapper.MapToStockResponse).ToList();
         return new PagedList<StockResponseDto>(stockDto, list.CurrentPage, list.PageSize, list.TotalCount);

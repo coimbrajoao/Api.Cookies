@@ -347,6 +347,7 @@
       },
       "Cookie.Infra.Data/1.0.0": {
         "dependencies": {
+          "Cookie.Application": "1.0.0",
           "Cookie.Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.1",
           "Microsoft.EntityFrameworkCore": "10.0.1",
